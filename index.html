@@ -109,6 +109,49 @@
   transform: scale(1.1);
 }
 
+/* ── Core Competency cards ── */
+.competency-card {
+  background: rgba(0, 212, 255, 0.03);
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  border-radius: 10px;
+  padding: 22px 18px;
+  height: 100%;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+.competency-card:hover {
+  border-color: rgba(0, 212, 255, 0.45);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.09);
+  background: rgba(0, 212, 255, 0.06);
+}
+.competency-card .comp-icon {
+  font-size: 26px;
+  margin-bottom: 10px;
+  display: block;
+}
+.competency-card h5 {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: #00d4ff;
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+  padding-bottom: 8px;
+}
+.comp-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.comp-tags span {
+  font-size: 12px;
+  padding: 3px 9px;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.05);
+  color: rgba(255,255,255,0.72);
+  border: 1px solid rgba(255,255,255,0.09);
+}
+
 /* ── Project card enhancements ── */
 .blog-entry {
   border: 1px solid rgba(0, 212, 255, 0.15);
@@ -201,6 +244,7 @@
 	        <ul class="navbar-nav nav ml-auto">
 	          <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
 	          <li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
+	          <li class="nav-item"><a href="#skills-section" class="nav-link"><span>Skills</span></a></li>
 	          <li class="nav-item"><a href="#resume-section" class="nav-link"><span>Resume</span></a></li>
 	          <li class="nav-item"><a href="#project-section" class="nav-link"><span>Projects</span></a></li>
 	          <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
@@ -343,7 +387,10 @@
 								<h2 class="mb-4">About Me</h2>
 								
 								<p>
-									Embedded Software Engineer with 3+ years of experience in silicon validation, low-level system programming, and SoC platform development. Expert in Embedded C and Linux kernel development, with a proven track record in performance validation, device driver integration, and hardware-software bring-up on ARM Cortex-M4 platforms (ADSP-SC598, AMP140C4). Holds a Master's degree in Electrical and Computer Science Engineering from Tamkang University.
+									Embedded Software Engineer with 3+ years of hands-on experience in silicon validation, low-level system programming, and SoC platform development. Expert in Embedded C and Linux kernel development, with a proven track record in performance validation, device driver integration, and hardware-software bring-up on ARM Cortex-M4 platforms (ADSP-SC598, AMP140C4) using Yocto Linux. Holds a Master of Science in Electrical and Computer Science Engineering from Tamkang University.
+								</p>
+								<p>
+									Experienced in architecting bootloaders, developing production-grade USB 2.0 and DMA device drivers, and performing silicon-level debugging with JTAG and GDB. Comfortable working across the full embedded stack — from bare-metal initialization and RTOS integration to Python-based validation automation — and proficient in Git/Gerrit-driven collaborative development workflows. Passionate about building reliable, performant firmware that bridges hardware and software seamlessly.
 								</p>
 								<ul class="about-info mt-4 px-md-0 px-2">
 									<li class="d-flex"><span>Profile:</span> <span>Firmware / Embedded Software Engineer</span></li>
@@ -378,8 +425,136 @@
     </section>
 
 
+	<!-- ══════════════════════════════════════
+	     CORE COMPETENCIES SECTION
+	══════════════════════════════════════ -->
+	<section class="ftco-section" id="skills-section">
+		<div class="container">
+			<div class="row justify-content-center pb-5">
+				<div class="col-md-10 heading-section text-center ftco-animate">
+					<h1 class="big big-2">Skills</h1>
+					<h2 class="mb-4">Core Competencies</h2>
+					<p>A comprehensive skill set spanning low-level firmware development, hardware interfacing, silicon validation, and automated testing — built through hands-on SoC bring-up and production driver development.</p>
+				</div>
+			</div>
+			<div class="row">
 
-	
+				<div class="col-md-3 col-sm-6 ftco-animate mb-4">
+					<div class="competency-card">
+						<span class="comp-icon">💻</span>
+						<h5>Languages</h5>
+						<div class="comp-tags">
+							<span>Embedded C</span>
+							<span>Python</span>
+							<span>C++</span>
+							<span>Bash Scripting</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-3 col-sm-6 ftco-animate mb-4">
+					<div class="competency-card">
+						<span class="comp-icon">⚙️</span>
+						<h5>Embedded Systems</h5>
+						<div class="comp-tags">
+							<span>ARM Cortex-M4</span>
+							<span>ADSP-SC598</span>
+							<span>AMP140C4</span>
+							<span>Memory Management</span>
+							<span>Bitwise Operations</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-3 col-sm-6 ftco-animate mb-4">
+					<div class="competency-card">
+						<span class="comp-icon">🐧</span>
+						<h5>Linux &amp; Kernel</h5>
+						<div class="comp-tags">
+							<span>Yocto Linux</span>
+							<span>Device Drivers</span>
+							<span>Kernel Development</span>
+							<span>System-level Programming</span>
+							<span>Peripheral Bring-up</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-3 col-sm-6 ftco-animate mb-4">
+					<div class="competency-card">
+						<span class="comp-icon">🔀</span>
+						<h5>Version Control</h5>
+						<div class="comp-tags">
+							<span>Git</span>
+							<span>Gerrit</span>
+							<span>GitHub</span>
+							<span>CI/CD</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-3 col-sm-6 ftco-animate mb-4">
+					<div class="competency-card">
+						<span class="comp-icon">🔍</span>
+						<h5>Debugging Tools</h5>
+						<div class="comp-tags">
+							<span>GDB</span>
+							<span>JTAG</span>
+							<span>Logic Analyzers</span>
+							<span>Oscilloscopes</span>
+							<span>ADB</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-3 col-sm-6 ftco-animate mb-4">
+					<div class="competency-card">
+						<span class="comp-icon">🔌</span>
+						<h5>Hardware Interfaces</h5>
+						<div class="comp-tags">
+							<span>SoC Architecture</span>
+							<span>Interrupt Handling</span>
+							<span>DMA</span>
+							<span>USB 2.0</span>
+							<span>I2C</span>
+							<span>SPI</span>
+							<span>UART</span>
+							<span>GPIO</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-3 col-sm-6 ftco-animate mb-4">
+					<div class="competency-card">
+						<span class="comp-icon">✅</span>
+						<h5>Validation</h5>
+						<div class="comp-tags">
+							<span>Silicon Validation</span>
+							<span>Performance Testing</span>
+							<span>Unit Testing</span>
+							<span>Integration Testing</span>
+							<span>Test Automation</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-3 col-sm-6 ftco-animate mb-4">
+					<div class="competency-card">
+						<span class="comp-icon">📱</span>
+						<h5>Mobile Platforms</h5>
+						<div class="comp-tags">
+							<span>Android Kernel</span>
+							<span>Android Embedded</span>
+							<span>Mobile Device Validation</span>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+
     <section class="ftco-section ftco-no-pb" id="resume-section">
     	<div class="container">
     		<div class="row justify-content-center pb-5">
