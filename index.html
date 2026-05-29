@@ -230,6 +230,7 @@
 #home-section {
   position: relative;
 }
+/* Canvas sits BELOW the carousel (z-index:1) so text stays readable */
 #matrixCanvas {
   position: absolute;
   top: 0;
@@ -237,11 +238,15 @@
   width: 60%;
   height: 100%;
   display: block;
-  z-index: 2;
+  z-index: 0;
   pointer-events: none;
 }
+/* Right image panel: transparent so canvas behind it shows through */
+#hero-anim-wrap {
+  background: transparent !important;
+}
 @media (max-width: 991.98px) {
-  #matrixCanvas { width: 100%; }
+  #matrixCanvas { width: 100%; z-index: 0; }
 }
 </style>
 
