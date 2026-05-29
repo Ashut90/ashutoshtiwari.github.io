@@ -3,15 +3,13 @@
   var canvas = document.getElementById('matrixCanvas');
   if (!canvas) return;
   var ctx = canvas.getContext('2d');
-
   var fontSize = 13;
   var cols, drops;
-  var started = false;
 
   function resize() {
     var wrap = canvas.parentElement;
-    // js-fullheight sets height = window.innerHeight via jQuery; use that as fallback
-    canvas.width = wrap.offsetWidth || Math.round(window.innerWidth * 0.6);
+    // .one-third is 60% wide; js-fullheight sets height = window.innerHeight
+    canvas.width  = wrap.offsetWidth  || Math.round(window.innerWidth  * 0.6);
     canvas.height = wrap.offsetHeight || window.innerHeight;
     initDrops();
   }
@@ -28,6 +26,9 @@
               'forcludedefinereturn#include<>sizeof(){}[];=+-*&|0xFF0x00GPIO_UART_SPI';
 
   function tick() {
+    // If dimensions are still 0, re-measure and bail this frame
+    if (!canvas.width || !canvas.height) { resize(); return; }
+
     ctx.fillStyle = 'rgba(0,0,0,0.05)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -47,23 +48,16 @@
         ctx.fillText(c, x, y);
       }
 
-      if (y > canvas.height && Math.random() > 0.975) {
-        drops[i] = 0;
-      }
+      if (y > canvas.height && Math.random() > 0.975) drops[i] = 0;
       drops[i] += 0.55;
     }
   }
 
-  function start() {
-    if (started) return;
-    started = true;
-    resize();
-    setInterval(tick, 38);
-  }
+  // Start immediately — tick() self-heals if dims are still 0
+  resize();
+  setInterval(tick, 38);
 
-  // Wait until js-fullheight (jQuery ready) has set the parent height, then start
-  window.addEventListener('load', function () {
-    setTimeout(start, 100);
-  });
+  // Re-measure after owl + js-fullheight finish
+  window.addEventListener('load', function () { resize(); });
   window.addEventListener('resize', resize);
 })();
