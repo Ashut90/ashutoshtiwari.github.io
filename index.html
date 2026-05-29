@@ -227,19 +227,21 @@
 
 
 /* ===== GEEKY ANIMATIONS ===== */
-#hero-anim-wrap {
-  background: #000 !important;
-  overflow: hidden;
+#home-section {
   position: relative;
-  z-index: 0 !important;
 }
 #matrixCanvas {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  right: 0;
+  width: 60%;
   height: 100%;
   display: block;
+  z-index: 2;
+  pointer-events: none;
+}
+@media (max-width: 991.98px) {
+  #matrixCanvas { width: 100%; }
 }
 </style>
 
@@ -268,13 +270,13 @@
 	    </div>
 	  </nav>
 	  <section id="home-section" class="hero">
+      <canvas id="matrixCanvas"></canvas>
 		  <div class="home-slider  owl-carousel">
 	       <div class="slider-item ">
 	      	<div class="overlay"></div>
 	         <div class="container">
 	          <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
 	          	<div class="one-third js-fullheight order-md-last img" id="hero-anim-wrap">
-          	 <canvas id="matrixCanvas"></canvas>
 	          	 <div class="overlay"></div>
 	          	</div>
 		          <div class="one-forth d-flex  align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
