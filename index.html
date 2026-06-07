@@ -289,45 +289,6 @@
 		          		<span class="subheading">Hello!</span>
 			            <h1 class="mb-4 mt-3">I'm <span>Ashutosh Tiwari</span></h1>
 
-						<!-- Typing animation -->
-						<span id="typing-animation"></span>
-
-						<script>
-						(function() {
-						  var el = document.getElementById('typing-animation');
-						  var texts = [
-						    'Firmware Engineer',
-						    'Embedded Software Engineer',
-						    'Embedded C Developer',
-						    'Available for Freelance'
-						  ];
-						  var ti = 0, ci = 0, deleting = false;
-
-						  function type() {
-						    var current = texts[ti];
-						    if (!deleting) {
-						      el.textContent = current.substring(0, ci + 1);
-						      ci++;
-						      if (ci === current.length) {
-						        deleting = true;
-						        setTimeout(type, 1800);
-						        return;
-						      }
-						    } else {
-						      el.textContent = current.substring(0, ci - 1);
-						      ci--;
-						      if (ci === 0) {
-						        deleting = false;
-						        ti = (ti + 1) % texts.length;
-						      }
-						    }
-						    setTimeout(type, deleting ? 50 : 90);
-						  }
-						  setTimeout(type, 500);
-						})();
-						</script>
-
-						<br><br>
 			            <h2>Embedded Software Engineer &amp; Firmware Developer</h2>
 						<!-- <h2 class="d-flex" style="margin-bottom: 0">With over 2.7 years of experience</h2> -->
 						<!-- <br> -->
@@ -411,13 +372,13 @@
 								<h2 class="mb-4">About Me</h2>
 								
 								<p>
-									Embedded Software Engineer with 5+ years of hands-on experience in silicon validation, low-level system programming, and SoC platform development. Expert in Embedded C and Linux kernel development, with a proven track record in performance validation, device driver integration, and hardware-software bring-up on ARM Cortex-M4 platforms (ADSP-SC598, AMP140C4) using Yocto Linux. Holds a Master of Science in Electrical and Computer Science Engineering from Tamkang University.
+									Embedded Software Engineer with 4.5 years of progressive engineering experience, now focused on Firmware and Embedded Linux engineering. At Elytone Electronics, I developed a production-grade USB 2.0 Wi-Fi driver for ADSP-SC598 and AMP140C4 SoC platforms on Yocto Linux, implementing interrupt handling, DMA operations, and memory management from scratch. I architected a secure bootloader with rollback protection for ARM Cortex-M4 and performed silicon-level debugging using JTAG and GDB.
 								</p>
 								<p>
-									Experienced in architecting bootloaders, developing production-grade USB 2.0 and DMA device drivers, and performing silicon-level debugging with JTAG and GDB. Comfortable working across the full embedded stack — from bare-metal initialization and RTOS integration to Python-based validation automation — and proficient in Git/Gerrit-driven collaborative development workflows. Passionate about building reliable, performant firmware that bridges hardware and software seamlessly.
+									My earlier background in test automation at Truetel and CIeNET built strong Python scripting and embedded validation skills that directly support firmware debugging workflows today. I hold a Master's in Electrical and Computer Engineering from Tamkang University, where my research focused on CNN-based pattern recognition and computer vision. Currently deepening kernel development skills — device trees, Linux driver model, and Yocto layer architecture — targeting BSP and embedded Linux roles.
 								</p>
 								<p style="color:#00d4ff; font-weight:600;">
-									&#10003; Open to full-time roles and freelance projects worldwide — embedded systems, firmware development, and software engineering.
+									&#10003; Open to full-time roles and freelance projects worldwide — embedded systems, firmware, and embedded Linux engineering.
 								</p>
 								<ul class="about-info mt-4 px-md-0 px-2">
 									<li class="d-flex"><span>Profile:</span> <span>Firmware / Embedded Software Engineer</span></li>
