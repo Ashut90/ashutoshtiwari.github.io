@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Resume — Ashutosh Tiwari</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="css/aos.css">
+  <link rel="stylesheet" href="css/ionicons.min.css">
+  <link rel="stylesheet" href="css/flaticon.css">
+  <link rel="stylesheet" href="css/icomoon.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .page-hero {
+      background: linear-gradient(135deg, #0a0a0a 0%, #0d1f33 100%);
+      padding: 120px 0 60px;
+      text-align: center;
+    }
+    .page-hero h1 { font-size: 3rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
+    .page-hero p  { color: rgba(255,255,255,0.6); font-size: 1.1rem; }
+    .page-hero .accent { color: #00d4ff; }
+
+    .resume-page { background: #111; padding: 70px 0; }
+
+    .section-label {
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      color: #00d4ff; font-weight: 700; margin-bottom: 6px; display: block;
+    }
+    .section-title {
+      font-size: 1.8rem; font-weight: 700; color: #fff; margin-bottom: 10px;
+    }
+    .section-divider {
+      width: 50px; height: 3px; background: #00d4ff;
+      border-radius: 2px; margin-bottom: 40px;
+    }
+
+    /* Timeline cards */
+    .timeline-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(0,212,255,0.1);
+      border-left: 3px solid #00d4ff;
+      border-radius: 10px;
+      padding: 28px 30px;
+      margin-bottom: 24px;
+      position: relative;
+      transition: box-shadow 0.3s, border-color 0.3s;
+    }
+    .timeline-card:hover {
+      box-shadow: 0 8px 30px rgba(0,212,255,0.08);
+      border-color: rgba(0,212,255,0.3);
+    }
+    .timeline-card .date-badge {
+      display: inline-block;
+      font-size: 11px; font-weight: 700; letter-spacing: 1px;
+      color: #00d4ff; background: rgba(0,212,255,0.1);
+      border: 1px solid rgba(0,212,255,0.2);
+      border-radius: 20px; padding: 3px 12px;
+      margin-bottom: 14px;
+    }
+    .timeline-card h3 { font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .timeline-card .company { font-size: 0.9rem; color: rgba(255,255,255,0.5); margin-bottom: 16px; }
+    .timeline-card ul { padding-left: 20px; margin: 0; }
+    .timeline-card ul li {
+      font-size: 0.88rem; color: rgba(255,255,255,0.7);
+      line-height: 1.8; margin-bottom: 4px;
+    }
+
+    /* Education cards */
+    .edu-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(0,212,255,0.1);
+      border-radius: 10px; padding: 24px 28px;
+      margin-bottom: 20px;
+      transition: box-shadow 0.3s;
+    }
+    .edu-card:hover { box-shadow: 0 8px 30px rgba(0,212,255,0.07); }
+    .edu-card .date-badge {
+      display: inline-block; font-size: 11px; font-weight: 700;
+      color: #c07aff; background: rgba(180,100,255,0.1);
+      border: 1px solid rgba(180,100,255,0.2);
+      border-radius: 20px; padding: 3px 12px; margin-bottom: 10px;
+    }
+    .edu-card h3 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
+    .edu-card .institution { font-size: 0.88rem; color: rgba(255,255,255,0.5); }
+    .edu-card .grade { font-size: 0.82rem; color: #00e676; margin-top: 8px; }
+
+    /* Skills grid */
+    .skill-chip {
+      display: inline-block; font-size: 12px; font-weight: 600;
+      padding: 5px 14px; border-radius: 20px; margin: 4px;
+      background: rgba(0,212,255,0.08); color: #00d4ff;
+      border: 1px solid rgba(0,212,255,0.2);
+    }
+    .skill-chip.violet {
+      background: rgba(180,100,255,0.08); color: #c07aff;
+      border-color: rgba(180,100,255,0.2);
+    }
+    .skill-chip.green {
+      background: rgba(0,230,118,0.08); color: #00e676;
+      border-color: rgba(0,230,118,0.2);
+    }
+    .skills-group { margin-bottom: 28px; }
+    .skills-group-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 10px; }
+
+    .download-cta { text-align: center; padding: 50px 0; }
+    .download-cta h3 { color: #fff; margin-bottom: 20px; }
+  </style>
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+  <!-- ── NAV ── -->
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Ashutosh Tiwari</a>
+      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav nav ml-auto">
+          <li class="nav-item"><a href="index.html" class="nav-link"><span>Home</span></a></li>
+          <li class="nav-item"><a href="index.html#about-section" class="nav-link"><span>About</span></a></li>
+          <li class="nav-item"><a href="index.html#skills-section" class="nav-link"><span>Skills</span></a></li>
+          <li class="nav-item active"><a href="resume.html" class="nav-link"><span>Resume</span></a></li>
+          <li class="nav-item"><a href="projects.html" class="nav-link"><span>Projects</span></a></li>
+          <li class="nav-item"><a href="contact.html" class="nav-link"><span>Contact</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── PAGE HERO ── -->
+  <div class="page-hero">
+    <div class="container">
+      <h1>My <span class="accent">Resume</span></h1>
+      <p>5+ years building hardware-software bridges from bare-metal to SoC platforms</p>
+    </div>
+  </div>
+
+  <!-- ── CONTENT ── -->
+  <section class="resume-page">
+    <div class="container">
+
+      <!-- EXPERIENCE -->
+      <span class="section-label">Work History</span>
+      <h2 class="section-title">Experience</h2>
+      <div class="section-divider"></div>
+
+      <div class="timeline-card ftco-animate">
+        <span class="date-badge">Jun 2024 – May 2026</span>
+        <h3>Software Engineer — Embedded Systems &amp; Validation</h3>
+        <p class="company">Elytone Electronics Co., Ltd. &nbsp;|&nbsp; New Taipei City, Taiwan</p>
+        <ul>
+          <li>Executed performance validation and developed custom USB 2.0 Wi-Fi driver for ADSP-SC598 and AMP140C4 SoC platforms using Yocto Linux.</li>
+          <li>Developed production-ready device drivers with interrupt handling, DMA operations, and memory management — fully compliant with ADI Yocto-Standard distribution.</li>
+          <li>Architected secure bootloader with firmware upgrade mechanisms for ARM Cortex-M4 microcontrollers in bare-metal and RTOS environments.</li>
+          <li>Implemented low-level hardware initialization and peripheral bring-up in Embedded C, modifying source parameters per hardware specs.</li>
+          <li>Performed silicon-level debugging using JTAG, GDB, and hardware analyzers to validate SoC hardware-software integration.</li>
+          <li>Developed automated validation utilities in Python, achieving 85%+ code coverage and reducing regression cycles by 60%.</li>
+          <li>Utilized Git/Gerrit workflows for code review and version control across multi-platform development.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-card ftco-animate">
+        <span class="date-badge">Sep 2021 – May 2023</span>
+        <h3>Software Development Engineer — Test Automation</h3>
+        <p class="company">Truetel Taiwan &nbsp;|&nbsp; Taipei City, Taiwan</p>
+        <ul>
+          <li>Designed Python-based test automation framework for Android AI device validation, improving test coverage by 40%.</li>
+          <li>Executed integration testing and performance validation for GPS APIs using Android Debug Bridge (ADB).</li>
+          <li>Developed and maintained Python test scripts on Linux platforms using Git version control and CI/CD pipelines.</li>
+          <li>Modified C source code parameters for Android embedded systems, conducting root-cause analysis on critical defects.</li>
+          <li>Collaborated with firmware teams on low-level troubleshooting, enhancing system reliability.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-card ftco-animate">
+        <span class="date-badge">Nov 2020 – Sep 2021</span>
+        <h3>Software Testing &amp; Quality Analysis Engineer</h3>
+        <p class="company">CIeNET Technologies &nbsp;|&nbsp; Taipei City, Taiwan</p>
+        <ul>
+          <li>Developed comprehensive validation plans for Android-based automotive embedded systems (GMC infotainment).</li>
+          <li>Conducted performance testing and defect analysis for embedded components, improving system reliability by 30%.</li>
+          <li>Utilized ADB, Python, and Linux command line for system-level validation and debugging.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-card ftco-animate">
+        <span class="date-badge">Jul 2018 – Nov 2020</span>
+        <h3>Research Assistant — Deep Learning &amp; Computer Vision</h3>
+        <p class="company">Tamkang University &nbsp;|&nbsp; New Taipei City, Taiwan</p>
+        <ul>
+          <li>Researched CNN-based algorithms for pattern recognition using Python and C++.</li>
+          <li>Developed data preprocessing pipelines applicable to signal processing and embedded system optimization.</li>
+        </ul>
+      </div>
+
+      <!-- EDUCATION -->
+      <br><br>
+      <span class="section-label">Academic Background</span>
+      <h2 class="section-title">Education</h2>
+      <div class="section-divider"></div>
+
+      <div class="row">
+        <div class="col-md-6 ftco-animate">
+          <div class="edu-card">
+            <span class="date-badge">2018 – 2020</span>
+            <h3>M.Sc. Electrical &amp; Computer Science Engineering</h3>
+            <p class="institution">Tamkang University, Taiwan</p>
+            <p class="grade">First Class Distinction</p>
+          </div>
+        </div>
+        <div class="col-md-6 ftco-animate">
+          <div class="edu-card">
+            <span class="date-badge">2014 – 2018</span>
+            <h3>Bachelor of Technology</h3>
+            <p class="institution">Vel Tech Rangarajan Dr. Sagunthala R&amp;D Institute of Science and Technology</p>
+            <p class="grade">First Class Distinction</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- KEY SKILLS -->
+      <br><br>
+      <span class="section-label">Technical Expertise</span>
+      <h2 class="section-title">Core Skills</h2>
+      <div class="section-divider"></div>
+
+      <div class="skills-group ftco-animate">
+        <div class="skills-group-label">Embedded / Firmware</div>
+        <span class="skill-chip">Embedded C</span>
+        <span class="skill-chip">RTOS</span>
+        <span class="skill-chip">ARM Cortex-M4</span>
+        <span class="skill-chip">Bootloader Design</span>
+        <span class="skill-chip">Device Drivers</span>
+        <span class="skill-chip">DMA / Interrupts</span>
+        <span class="skill-chip">JTAG / GDB</span>
+        <span class="skill-chip">Bare-metal</span>
+      </div>
+
+      <div class="skills-group ftco-animate">
+        <div class="skills-group-label">Operating Systems &amp; Platforms</div>
+        <span class="skill-chip violet">Linux Kernel</span>
+        <span class="skill-chip violet">Yocto Project</span>
+        <span class="skill-chip violet">Android (ADB)</span>
+        <span class="skill-chip violet">SoC Bring-up</span>
+        <span class="skill-chip violet">ADSP-SC598</span>
+      </div>
+
+      <div class="skills-group ftco-animate">
+        <div class="skills-group-label">Languages &amp; Tools</div>
+        <span class="skill-chip green">Python</span>
+        <span class="skill-chip green">C++</span>
+        <span class="skill-chip green">Git / Gerrit</span>
+        <span class="skill-chip green">CI/CD</span>
+        <span class="skill-chip green">Jira / Confluence</span>
+        <span class="skill-chip green">Jupyter</span>
+      </div>
+
+      <div class="skills-group ftco-animate">
+        <div class="skills-group-label">AI / ML</div>
+        <span class="skill-chip">Machine Learning</span>
+        <span class="skill-chip">Deep Learning</span>
+        <span class="skill-chip">Whisper</span>
+        <span class="skill-chip">Ollama</span>
+        <span class="skill-chip">LLM Integration</span>
+      </div>
+
+      <!-- DOWNLOAD CTA -->
+      <div class="download-cta ftco-animate">
+        <h3>Want the full PDF?</h3>
+        <a href="https://drive.google.com/file/d/137VJWeKOUD20bLV9FzSIlnfJ-X73D0cB/view?usp=sharing"
+           target="_blank" rel="noopener" class="btn btn-primary py-3 px-5">Download CV (PDF)</a>
+        &nbsp;
+        <a href="contact.html" class="btn btn-outline-light py-3 px-5">Contact Me</a>
+      </div>
+
+    </div><!-- /container -->
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="ftco-footer ftco-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> Ashutosh Tiwari &mdash; <a href="index.html">Home</a> &middot; <a href="projects.html">Projects</a> &middot; <a href="resume.html">Resume</a> &middot; <a href="contact.html">Contact</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- ── CRISP LIVE CHAT ── -->
+  <script type="text/javascript">
+    window.$crisp=[];
+    window.CRISP_WEBSITE_ID="YOUR_CRISP_WEBSITE_ID";
+    (function(){var d=document,s=d.createElement("script");
+    s.src="https://client.crisp.chat/l.js";s.async=1;
+    d.getElementsByTagName("head")[0].appendChild(s);})();
+  </script>
+</body>
+</html>

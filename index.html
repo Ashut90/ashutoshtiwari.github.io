@@ -264,12 +264,12 @@
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav nav ml-auto">
-	          <li class="nav-item"><a href="#home-section" class="nav-link"><span>Home</span></a></li>
+	          <li class="nav-item active"><a href="index.html" class="nav-link"><span>Home</span></a></li>
 	          <li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
 	          <li class="nav-item"><a href="#skills-section" class="nav-link"><span>Skills</span></a></li>
-	          <li class="nav-item"><a href="#resume-section" class="nav-link"><span>Resume</span></a></li>
-	          <li class="nav-item"><a href="#project-section" class="nav-link"><span>Projects</span></a></li>
-	          <li class="nav-item"><a href="#contact-section" class="nav-link"><span>Contact</span></a></li>
+	          <li class="nav-item"><a href="resume.html" class="nav-link"><span>Resume</span></a></li>
+	          <li class="nav-item"><a href="projects.html" class="nav-link"><span>Projects</span></a></li>
+	          <li class="nav-item"><a href="contact.html" class="nav-link"><span>Contact</span></a></li>
 	        </ul>
 	      </div>
 	    </div>
@@ -856,7 +856,11 @@
 						<h2>More projects on<span> Github  </span> </h2>
 						<div class="heading"> <h4> Passionate about firmware, embedded systems, and building reliable hardware-software interfaces </h4>
 						<br>
-						<p><a href="https://github.com/Ashut90" class="btn btn-primary py-3 px-5">GitHub</a></p>
+						<p>
+						  <a href="projects.html" class="btn btn-primary py-3 px-4">All Projects</a>
+						  &nbsp;
+						  <a href="https://github.com/Ashut90" target="_blank" rel="noopener" class="btn btn-outline-light py-3 px-4">GitHub Profile</a>
+						</p>
 						</div>
 					</div>
 				</div>
@@ -973,8 +977,25 @@
   <script src="js/scrollax.min.js"></script>
   
   <script src="js/main.js"></script>
-
   <script src="js/geeky-animations.js"></script>
-    
+
+  <!-- ── CRISP LIVE CHAT + NOTIFICATIONS ── -->
+  <!-- SETUP (5 min, free):
+       1. Go to https://crisp.chat → Sign up free
+       2. Add your website → copy the Website ID shown in Settings → Website
+       3. Replace YOUR_CRISP_WEBSITE_ID below with that ID (do the same in resume.html, projects.html, contact.html)
+       4. Install the Crisp mobile app (iOS / Android) → you'll get push notifications for:
+          • New chat messages from visitors
+          • Someone visiting your site (live view)
+          • Contact form activity
+  -->
+  <script type="text/javascript">
+    window.$crisp=[];
+    window.CRISP_WEBSITE_ID="YOUR_CRISP_WEBSITE_ID";
+    (function(){var d=document,s=d.createElement("script");
+    s.src="https://client.crisp.chat/l.js";s.async=1;
+    d.getElementsByTagName("head")[0].appendChild(s);})();
+  </script>
+
   </body>
 </html>

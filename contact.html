@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Contact — Ashutosh Tiwari</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="css/aos.css">
+  <link rel="stylesheet" href="css/ionicons.min.css">
+  <link rel="stylesheet" href="css/flaticon.css">
+  <link rel="stylesheet" href="css/icomoon.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .page-hero {
+      background: linear-gradient(135deg, #0a0a0a 0%, #0d1f33 100%);
+      padding: 120px 0 60px;
+      text-align: center;
+    }
+    .page-hero h1 { font-size: 3rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
+    .page-hero p  { color: rgba(255,255,255,0.6); font-size: 1.1rem; }
+    .page-hero .accent { color: #00d4ff; }
+
+    .contact-page { background: #111; padding: 70px 0 100px; }
+
+    /* Info cards */
+    .info-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(0,212,255,0.1);
+      border-radius: 12px; padding: 28px 20px;
+      text-align: center; height: 100%;
+      transition: box-shadow 0.3s, border-color 0.3s;
+    }
+    .info-card:hover { box-shadow: 0 8px 30px rgba(0,212,255,0.08); border-color: rgba(0,212,255,0.3); }
+    .info-card .icon-wrap {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.25);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 18px; font-size: 22px;
+    }
+    .info-card h4 { font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .info-card p, .info-card a { font-size: 0.88rem; color: rgba(255,255,255,0.6); word-break: break-all; }
+    .info-card a:hover { color: #00d4ff; }
+
+    /* Contact form */
+    .contact-form-wrap {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(0,212,255,0.1);
+      border-radius: 14px; padding: 40px;
+    }
+    .contact-form-wrap h3 { font-size: 1.4rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    .contact-form-wrap .sub { font-size: 0.9rem; color: rgba(255,255,255,0.5); margin-bottom: 28px; }
+
+    .form-control {
+      background: rgba(255,255,255,0.05) !important;
+      border: 1px solid rgba(0,212,255,0.15) !important;
+      color: #fff !important; border-radius: 8px !important;
+      padding: 12px 16px !important;
+      transition: border-color 0.2s !important;
+    }
+    .form-control:focus {
+      border-color: rgba(0,212,255,0.5) !important;
+      box-shadow: 0 0 0 3px rgba(0,212,255,0.08) !important;
+      outline: none !important;
+    }
+    .form-control::placeholder { color: rgba(255,255,255,0.3) !important; }
+    .form-label { font-size: 0.85rem; font-weight: 600; color: rgba(255,255,255,0.7); margin-bottom: 6px; }
+
+    .btn-send {
+      background: linear-gradient(135deg, #0099bb, #00d4ff);
+      color: #000; font-weight: 700; border: none;
+      border-radius: 8px; padding: 14px 36px; font-size: 0.95rem;
+      width: 100%; transition: opacity 0.2s;
+    }
+    .btn-send:hover { opacity: 0.85; }
+
+    /* Success/error messages */
+    #form-success { display:none; padding:16px; border-radius:8px; background:rgba(0,230,118,0.1); border:1px solid rgba(0,230,118,0.3); color:#00e676; font-weight:600; text-align:center; margin-top:16px; }
+    #form-error   { display:none; padding:16px; border-radius:8px; background:rgba(255,50,50,0.1);  border:1px solid rgba(255,50,50,0.3);  color:#ff5555; font-weight:600; text-align:center; margin-top:16px; }
+
+    /* Social links */
+    .social-row { text-align: center; margin-top: 60px; }
+    .social-row h4 { color: rgba(255,255,255,0.5); font-size: 0.9rem; margin-bottom: 20px; }
+    .social-icon {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 48px; height: 48px; border-radius: 50%;
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.6); font-size: 20px; margin: 0 6px;
+      text-decoration: none; transition: all 0.2s;
+    }
+    .social-icon:hover { background: rgba(0,212,255,0.1); border-color: #00d4ff; color: #00d4ff; }
+
+    .section-label {
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      color: #00d4ff; font-weight: 700; margin-bottom: 6px; display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── NAV ── -->
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Ashutosh Tiwari</a>
+      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav nav ml-auto">
+          <li class="nav-item"><a href="index.html" class="nav-link"><span>Home</span></a></li>
+          <li class="nav-item"><a href="index.html#about-section" class="nav-link"><span>About</span></a></li>
+          <li class="nav-item"><a href="index.html#skills-section" class="nav-link"><span>Skills</span></a></li>
+          <li class="nav-item"><a href="resume.html" class="nav-link"><span>Resume</span></a></li>
+          <li class="nav-item"><a href="projects.html" class="nav-link"><span>Projects</span></a></li>
+          <li class="nav-item active"><a href="contact.html" class="nav-link"><span>Contact</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── PAGE HERO ── -->
+  <div class="page-hero">
+    <div class="container">
+      <h1>Get In <span class="accent">Touch</span></h1>
+      <p>Open to embedded opportunities, collaborations, and interesting problems</p>
+    </div>
+  </div>
+
+  <!-- ── CONTENT ── -->
+  <section class="contact-page">
+    <div class="container">
+
+      <!-- INFO CARDS -->
+      <div class="row mb-5">
+        <div class="col-md-3 mb-4 ftco-animate">
+          <div class="info-card">
+            <div class="icon-wrap"><span class="icon-map-signs"></span></div>
+            <h4>Location</h4>
+            <p>New Taipei City, Taiwan</p>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4 ftco-animate">
+          <div class="info-card">
+            <div class="icon-wrap"><span class="icon-phone2"></span></div>
+            <h4>Phone</h4>
+            <p><a href="tel:+886983686271">+886-983-686-271</a></p>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4 ftco-animate">
+          <div class="info-card">
+            <div class="icon-wrap"><span class="icon-paper-plane"></span></div>
+            <h4>Email</h4>
+            <p><a href="mailto:ash945512@gmail.com">ash945512@gmail.com</a></p>
+          </div>
+        </div>
+        <div class="col-md-3 mb-4 ftco-animate">
+          <div class="info-card">
+            <div class="icon-wrap"><span class="icon-globe"></span></div>
+            <h4>Resume</h4>
+            <p><a href="https://drive.google.com/file/d/137VJWeKOUD20bLV9FzSIlnfJ-X73D0cB/view?usp=sharing" target="_blank" rel="noopener">Download CV →</a></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONTACT FORM -->
+      <div class="row justify-content-center">
+        <div class="col-md-8 ftco-animate">
+          <div class="contact-form-wrap">
+            <span class="section-label">Send a message</span>
+            <h3>Let's talk</h3>
+            <p class="sub">Fill out the form and I'll get back to you within 24 hours. You can also drop a message via the chat bubble in the bottom-right corner.</p>
+
+            <!--
+              FORMSPREE SETUP (to receive emails when someone submits this form):
+              1. Go to https://formspree.io and sign up (free)
+              2. Click "New Form", enter your email ash945512@gmail.com
+              3. Copy the form endpoint (looks like https://formspree.io/f/xabcdef)
+              4. Replace YOUR_FORMSPREE_ENDPOINT below with that URL
+            -->
+            <form id="contact-form" action="https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT" method="POST">
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label class="form-label">Your Name *</label>
+                  <input type="text" name="name" class="form-control" placeholder="John Doe" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label class="form-label">Email Address *</label>
+                  <input type="email" name="email" class="form-control" placeholder="john@example.com" required>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Subject</label>
+                <input type="text" name="subject" class="form-control" placeholder="Embedded role / Collaboration / Question">
+              </div>
+              <div class="mb-4">
+                <label class="form-label">Message *</label>
+                <textarea name="message" class="form-control" rows="6" placeholder="Tell me about your project or opportunity..." required></textarea>
+              </div>
+              <button type="submit" class="btn-send">Send Message</button>
+              <div id="form-success">✓ Message sent! I'll reply within 24 hours.</div>
+              <div id="form-error">Something went wrong. Please email me directly at ash945512@gmail.com</div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- SOCIAL -->
+      <div class="social-row">
+        <h4>Or find me on</h4>
+        <a href="https://www.linkedin.com/in/ashutosh-tiwari94" target="_blank" rel="noopener" class="social-icon"><span class="icon-linkedin"></span></a>
+        <a href="https://github.com/Ashut90" target="_blank" rel="noopener" class="social-icon"><span class="icon-github"></span></a>
+        <a href="https://www.instagram.com/ashutosh___2194/" target="_blank" rel="noopener" class="social-icon"><span class="icon-instagram"></span></a>
+        <a href="https://stackoverflow.com/users/23285907/ashutosh-tiwari/" target="_blank" rel="noopener" class="social-icon"><span class="icon-stackoverflow"></span></a>
+      </div>
+
+    </div><!-- /container -->
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="ftco-footer ftco-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> Ashutosh Tiwari &mdash; <a href="index.html">Home</a> &middot; <a href="projects.html">Projects</a> &middot; <a href="resume.html">Resume</a> &middot; <a href="contact.html">Contact</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Form AJAX handling -->
+  <script>
+    (function() {
+      var form = document.getElementById('contact-form');
+      if (!form) return;
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var data = new FormData(form);
+        fetch(form.action, {
+          method: 'POST', body: data,
+          headers: { 'Accept': 'application/json' }
+        }).then(function(r) {
+          if (r.ok) {
+            document.getElementById('form-success').style.display = 'block';
+            document.getElementById('form-error').style.display   = 'none';
+            form.reset();
+          } else { throw new Error(); }
+        }).catch(function() {
+          document.getElementById('form-error').style.display   = 'block';
+          document.getElementById('form-success').style.display = 'none';
+        });
+      });
+    })();
+  </script>
+
+  <!-- ── CRISP LIVE CHAT ── -->
+  <!-- SETUP: 1) Go to https://crisp.chat, sign up FREE
+              2) Add your website → copy the Website ID
+              3) Replace YOUR_CRISP_WEBSITE_ID below
+              4) Install the Crisp iOS/Android app to get push notifications for:
+                 - New chat messages
+                 - Contact form activity
+                 - Visitor activity on your site -->
+  <script type="text/javascript">
+    window.$crisp=[];
+    window.CRISP_WEBSITE_ID="YOUR_CRISP_WEBSITE_ID";
+    (function(){var d=document,s=d.createElement("script");
+    s.src="https://client.crisp.chat/l.js";s.async=1;
+    d.getElementsByTagName("head")[0].appendChild(s);})();
+  </script>
+</body>
+</html>
