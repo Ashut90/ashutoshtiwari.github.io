@@ -289,45 +289,46 @@
 		          		<span class="subheading">Hello!</span>
 			            <h1 class="mb-4 mt-3">I'm <span>Ashutosh Tiwari</span></h1>
 
-						<!-- Element to contain animated typing -->
+						<!-- Typing animation -->
 						<span id="typing-animation"></span>
 
 						<script>
+						(function() {
+						  var el = document.getElementById('typing-animation');
+						  var texts = [
+						    'Firmware Engineer',
+						    'Embedded Software Engineer',
+						    'Embedded C Developer',
+						    'Available for Freelance'
+						  ];
+						  var ti = 0, ci = 0, deleting = false;
 
-						// Initialize the typing animation
-						const typingAnimationElement = document.getElementById('typing-animation');
-
-						// Create an array of typing text
-						const typingTexts = [
-						'Firmware Engineer',
-						'Embedded Software Engineer',
-						'Embedded C Developer'
-						];
-
-						// Create a function to display the typing animation for a given text
-						function playTypingAnimation(text) {
-						// Loop through each character and add it to the element
-						for (let i = 0; i < text.length; i++) {
-							setTimeout(() => {
-							typingAnimationElement.textContent += text[i];
-							}, i * 200); // Increase the delay to slow down the typing animation
-						}
-
-						// Once the animation is complete, reset the text and start over
-						setTimeout(() => {
-							typingAnimationElement.textContent = '';
-							playTypingAnimation(typingTexts[(typingTexts.indexOf(text) + 1) % typingTexts.length]);
-						}, text.length * 200);
-						}
-
-						// Start the typing animation loop
-						playTypingAnimation(typingTexts[0]);
-
+						  function type() {
+						    var current = texts[ti];
+						    if (!deleting) {
+						      el.textContent = current.substring(0, ci + 1);
+						      ci++;
+						      if (ci === current.length) {
+						        deleting = true;
+						        setTimeout(type, 1800);
+						        return;
+						      }
+						    } else {
+						      el.textContent = current.substring(0, ci - 1);
+						      ci--;
+						      if (ci === 0) {
+						        deleting = false;
+						        ti = (ti + 1) % texts.length;
+						      }
+						    }
+						    setTimeout(type, deleting ? 50 : 90);
+						  }
+						  setTimeout(type, 500);
+						})();
 						</script>
 
-						<br>
-						<br>
-			            <h2>An Embedded Software Engineer</h2>
+						<br><br>
+			            <h2>Embedded Software Engineer &amp; Firmware Developer</h2>
 						<!-- <h2 class="d-flex" style="margin-bottom: 0">With over 2.7 years of experience</h2> -->
 						<!-- <br> -->
 			            <p><a href="https://github.com/Ashut90" class="btn btn-primary py-3 px-4">Github</a>
@@ -414,6 +415,9 @@
 								</p>
 								<p>
 									Experienced in architecting bootloaders, developing production-grade USB 2.0 and DMA device drivers, and performing silicon-level debugging with JTAG and GDB. Comfortable working across the full embedded stack — from bare-metal initialization and RTOS integration to Python-based validation automation — and proficient in Git/Gerrit-driven collaborative development workflows. Passionate about building reliable, performant firmware that bridges hardware and software seamlessly.
+								</p>
+								<p style="color:#00d4ff; font-weight:600;">
+									&#10003; Open to full-time roles and freelance embedded &amp; firmware projects worldwide.
 								</p>
 								<ul class="about-info mt-4 px-md-0 px-2">
 									<li class="d-flex"><span>Profile:</span> <span>Firmware / Embedded Software Engineer</span></li>
