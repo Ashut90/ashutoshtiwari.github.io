@@ -309,6 +309,188 @@ body { height: 100%; overflow: hidden; }
   border-bottom: 2px solid #00d4ff;
   padding-bottom: 2px;
 }
+
+/* ── Download CV pill button (navbar) ── */
+.cv-dl-btn {
+  display: inline-block;
+  margin-left: 18px;
+  padding: 5px 16px;
+  border: 1.5px solid #64ffda;
+  color: #64ffda !important;
+  background: transparent;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-decoration: none !important;
+  transition: background 0.18s ease, color 0.18s ease;
+  white-space: nowrap;
+  align-self: center;
+}
+.cv-dl-btn:hover {
+  background: #64ffda;
+  color: #0a0a0a !important;
+}
+@media (max-width: 991.98px) {
+  .cv-dl-btn { display: block; margin: 8px 0 4px 0; text-align: center; }
+}
+
+/* ── About sidebar: CSS-grid dl ── */
+.about-dl { margin: 0; padding: 0; }
+.about-dl-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 4px 12px;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  align-items: start;
+}
+.about-dl-row:last-child { border-bottom: none; }
+.about-dl dt {
+  font-weight: 600;
+  color: rgba(0,212,255,0.75);
+  font-size: 0.78rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.about-dl dd {
+  margin: 0;
+  color: rgba(255,255,255,0.72);
+  font-size: 0.84rem;
+}
+
+/* ── How I Work cards ── */
+.how-i-work-section { margin-top: 32px; }
+.how-i-work-label {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(0,212,255,0.7);
+  margin-bottom: 14px;
+}
+.how-card {
+  background: rgba(0,212,255,0.04);
+  border-left: 2px solid rgba(0,212,255,0.6);
+  border-radius: 0 6px 6px 0;
+  padding: 14px 16px;
+  height: 100%;
+}
+.how-card-label {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #00d4ff;
+  margin-bottom: 7px;
+}
+.how-card-body {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.58);
+  margin: 0;
+  line-height: 1.65;
+  font-style: italic;
+}
+
+/* ── Skill proof lines ── */
+.skill-proof {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 10.5px;
+  color: rgba(255,255,255,0.35);
+  font-style: italic;
+  margin: 10px 0 0 0;
+  line-height: 1.6;
+  letter-spacing: 0.15px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding-top: 8px;
+}
+
+/* ── Resume TL;DR stat cards ── */
+.tldr-card {
+  background: rgba(0,212,255,0.04);
+  border: 1px solid rgba(0,212,255,0.18);
+  border-radius: 10px;
+  padding: 22px 18px;
+  text-align: center;
+}
+.tldr-stat {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #00d4ff;
+  line-height: 1.1;
+}
+.tldr-stat sup {
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgba(0,212,255,0.55);
+  margin-left: 3px;
+}
+.tldr-label {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.4px;
+  margin-top: 8px;
+}
+
+/* ── Professional / proprietary work ── */
+.proprietary-work {
+  background: rgba(0,212,255,0.03);
+  border: 1px solid rgba(0,212,255,0.12);
+  border-radius: 10px;
+  padding: 26px 28px;
+  margin-bottom: 40px;
+}
+.proprietary-disclaimer {
+  font-size: 0.83rem;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 16px;
+  font-style: italic;
+}
+.proprietary-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.proprietary-list li {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.72);
+  border-left: 2px solid rgba(0,212,255,0.55);
+  padding-left: 12px;
+  line-height: 1.8;
+  margin-bottom: 11px;
+}
+.proprietary-list li:last-child { margin-bottom: 0; }
+
+/* ── Project "why it exists" ── */
+.project-why {
+  font-size: 0.76rem;
+  color: rgba(255,255,255,0.32);
+  font-style: italic;
+  margin: 8px 0 0 0;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding-top: 7px;
+  line-height: 1.5;
+}
+
+/* ── Section wayfinding trail ── */
+.section-wayfinding {
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.22);
+  padding: 22px 0 8px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  margin-top: 48px;
+}
+.wayfinding-link {
+  color: rgba(0,212,255,0.45);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.wayfinding-link:hover { color: #00d4ff; text-decoration: none; }
 </style>
 
 
@@ -331,6 +513,7 @@ body { height: 100%; overflow: hidden; }
 	          <li class="nav-item"><a href="#" class="nav-link" data-nav="resume"><span>Resume</span></a></li>
 	          <li class="nav-item"><a href="#" class="nav-link" data-nav="projects"><span>Projects</span></a></li>
 	          <li class="nav-item"><a href="#" class="nav-link" data-nav="contact"><span>Contact</span></a></li>
+	          <li class="nav-item"><a href="https://drive.google.com/uc?export=download&id=137VJWeKOUD20bLV9FzSIlnfJ-X73D0cB" class="cv-dl-btn" target="_blank" rel="noopener">Download CV</a></li>
 	        </ul>
 	      </div>
 	    </div>
@@ -351,7 +534,7 @@ body { height: 100%; overflow: hidden; }
 			            <h1 class="mb-4 mt-3">I'm <span>Ashutosh Tiwari</span></h1>
 
 			            <h2>Embedded Software Engineer &amp; Firmware Developer</h2>
-						<p style="font-family:'Courier New',Courier,monospace;font-size:12px;color:rgba(0,212,255,0.9);background:rgba(0,212,255,0.06);border:1px solid rgba(0,212,255,0.18);border-radius:6px;padding:10px 14px;margin:14px 0 10px;line-height:2;letter-spacing:0.4px;">BCM4373 USB WiFi bring-up<br>ADSP-SC598 · Yocto 5.0<br>ARM Cortex-M4 bootloader</p>
+						<p style="font-family:'Courier New',Courier,monospace;font-size:13px;color:#a0c4ff;background:rgba(160,196,255,0.05);border:1px solid rgba(160,196,255,0.15);border-radius:6px;padding:10px 14px;margin:14px 0 10px;line-height:1.9;letter-spacing:0.08em;">BCM4373 USB WiFi bring-up &nbsp;·&nbsp; ADSP-SC598 Yocto 5.0 BSP<br>brcmfmac driver porting &nbsp;·&nbsp; SHARC-ALSA &nbsp;·&nbsp; AirPlay stream debugging</p>
 						<p style="color:#00d4ff;font-size:0.82rem;margin-bottom:22px;font-weight:600;">&#9656; Open to BSP / Embedded Linux roles in Taiwan or remote</p>
 			            <p><a href="https://github.com/Ashut90" class="btn btn-primary py-3 px-4">Github</a>
 		            </div>
@@ -360,6 +543,7 @@ body { height: 100%; overflow: hidden; }
 	        </div>
 	      </div>
 		</div>
+		<div class="section-wayfinding">About &mdash; <a class="wayfinding-link" href="#" data-nav="skills">Skills &rarr;</a> &nbsp;&middot;&nbsp; <a class="wayfinding-link" href="#" data-nav="resume">Resume &rarr;</a></div>
     </section>
 
 
@@ -415,12 +599,28 @@ body { height: 100%; overflow: hidden; }
 								<p style="color:#00d4ff; font-weight:600;">
 									&#10003; Open to full-time roles and freelance projects worldwide — embedded systems, firmware, and embedded Linux engineering.
 								</p>
-								<ul class="about-info mt-4 px-md-0 px-2">
-									<li class="d-flex"><span>Status:</span> <span style="color:#00d4ff;font-weight:600;">Open — BSP / Embedded Linux</span></li>
-									<li class="d-flex"><span>Location:</span> <span>New Taipei City, Taiwan</span></li>
-									<li class="d-flex"><span>Stack:</span> <span style="font-family:'Courier New',monospace;font-size:0.82rem;">Embedded C · Yocto · Linux Kernel · JTAG</span></li>
-									<li class="d-flex"><span>Education:</span> <span>M.Sc. ECE — Tamkang University</span></li>
-								</ul>
+								<dl class="about-dl mt-4">
+									<div class="about-dl-row">
+										<dt>Status</dt>
+										<dd style="color:#00d4ff;font-weight:600;">Open — BSP / Embedded Linux</dd>
+									</div>
+									<div class="about-dl-row">
+										<dt>Location</dt>
+										<dd>New Taipei City, Taiwan</dd>
+									</div>
+									<div class="about-dl-row">
+										<dt>Stack</dt>
+										<dd style="font-family:'Courier New',monospace;font-size:0.81rem;">Embedded C · Yocto · Linux Kernel · JTAG</dd>
+									</div>
+									<div class="about-dl-row">
+										<dt>Education (PG)</dt>
+										<dd>M.Sc. ECE — Tamkang University</dd>
+									</div>
+									<div class="about-dl-row">
+										<dt>Education (UG)</dt>
+										<dd>B.Tech ECE — Vel Tech University</dd>
+									</div>
+								</dl>
 							</div>
 						</div>
 
@@ -432,6 +632,30 @@ body { height: 100%; overflow: hidden; }
 									<span>&nbsp; Years of Experience</span>
 								</p>
 								<p><a href="https://www.linkedin.com/in/ashutosh-tiwari94/" class="btn btn-primary py-3 px-3">LinkedIn</a></p>
+							</div>
+						</div>
+
+						<div class="how-i-work-section ftco-animate">
+							<p class="how-i-work-label">// How I Work</p>
+							<div class="row">
+								<div class="col-md-4 mb-3">
+									<div class="how-card">
+										<div class="how-card-label">Debugging Philosophy</div>
+										<p class="how-card-body">"I follow the signal to the silicon. If the driver says it's fine and the scope disagrees, I trust the scope."</p>
+									</div>
+								</div>
+								<div class="col-md-4 mb-3">
+									<div class="how-card">
+										<div class="how-card-label">Build Environment</div>
+										<p class="how-card-body">"Yocto 5.0, kernel 6.12, JTAG/ICE-1000, GDB cross-compiled for ARM/SHARC. NFS boot for fast iteration cycles."</p>
+									</div>
+								</div>
+								<div class="col-md-4 mb-3">
+									<div class="how-card">
+										<div class="how-card-label">Engineering Standard</div>
+										<p class="how-card-body">"Production-grade means it survives a power cut, a hot-reload, and a junior engineer touching it six months later."</p>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -464,6 +688,7 @@ body { height: 100%; overflow: hidden; }
 							<span class="code">C++</span>
 							<span class="code">Bash</span>
 						</div>
+						<p class="skill-proof">USB 2.0 device driver in Embedded C — interrupt handling, DMA ring buffers, URB lifecycle management, upstreamed to ADI Yocto-Standard.</p>
 					</div>
 				</div>
 
@@ -477,6 +702,7 @@ body { height: 100%; overflow: hidden; }
 							<span>Memory Management</span>
 							<span>Bootloader Design</span>
 						</div>
+						<p class="skill-proof">ADSP-SC598 + AMP140C4 SoC bring-up from bare board — U-Boot, device tree authoring, peripheral init, JFFS2 rootfs.</p>
 					</div>
 				</div>
 
@@ -490,6 +716,7 @@ body { height: 100%; overflow: hidden; }
 							<span class="code">brcmfmac</span>
 							<span>Peripheral Bring-up</span>
 						</div>
+						<p class="skill-proof">BCM4373 brcmfmac bring-up on kernel 6.12: TRX firmware loading, CLM blob, USB ID patch, regulatory domain, WPA2 association verified.</p>
 					</div>
 				</div>
 
@@ -561,6 +788,7 @@ body { height: 100%; overflow: hidden; }
 
 			</div>
 		</div>
+		<div class="section-wayfinding">Skills &mdash; <a class="wayfinding-link" href="#" data-nav="resume">Resume &rarr;</a> &nbsp;&middot;&nbsp; <a class="wayfinding-link" href="#" data-nav="projects">Projects &rarr;</a></div>
 	</section>
 
 
@@ -573,6 +801,13 @@ body { height: 100%; overflow: hidden; }
 			<p>Embedded Software Engineer with 4.5 years of progressive experience in firmware and embedded Linux engineering — from production USB device drivers and secure bootloaders to silicon-level debugging and BSP development on Yocto-based SoC platforms.</p>
           </div>
         </div>
+
+		<!-- TL;DR stat banner -->
+		<div class="resume-tldr ftco-animate">
+			<div class="tldr-card"><div class="tldr-val">4.5 yrs</div><div class="tldr-lbl">Production Firmware</div></div>
+			<div class="tldr-card"><div class="tldr-val">2 SoCs</div><div class="tldr-lbl">ADSP-SC598 &middot; AMP140C4</div></div>
+			<div class="tldr-card"><div class="tldr-val">Yocto 5.0</div><div class="tldr-lbl">Kernel 6.12 + brcmfmac</div></div>
+		</div>
 
 		<div class="row">
 			<h1 class="big-4">Experience</h1>
@@ -687,6 +922,7 @@ body { height: 100%; overflow: hidden; }
     				<p><a href="https://drive.google.com/uc?export=download&id=137VJWeKOUD20bLV9FzSIlnfJ-X73D0cB" class="btn btn-primary py-4 px-5">Download CV</a></p>
     			</div>
     		</div>
+    		<div class="section-wayfinding">Resume &mdash; <a class="wayfinding-link" href="#" data-nav="projects">Projects &rarr;</a> &nbsp;&middot;&nbsp; <a class="wayfinding-link" href="#" data-nav="contact">Contact &rarr;</a></div>
     	</div>
     </section>
 
@@ -700,6 +936,18 @@ body { height: 100%; overflow: hidden; }
 					<p>A selection of embedded systems and firmware projects, spanning device driver development, SoC validation automation, and low-level system programming.</p>
 				</div>
 			</div>
+			<!-- Proprietary / NDA work -->
+			<div class="proprietary-work ftco-animate">
+				<h5 style="color:#00d4ff;font-size:0.9rem;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;">Professional Work (Proprietary)</h5>
+				<p class="proprietary-disclaimer">The following are production deliverables from Elytone Electronics. Full source is under NDA; details are shared at interview level.</p>
+				<ul class="proprietary-list">
+					<li>USB 2.0 Wi-Fi device driver (brcmfmac) for ADSP-SC598 on Yocto 5.0 / kernel 6.12 &mdash; interrupt handling, DMA ring buffers, URB lifecycle, upstreamed to ADI Yocto-Standard</li>
+					<li>Secure bootloader with rollback protection for ARM Cortex-M4 (AMP140C4) in bare-metal + FreeRTOS environments</li>
+					<li>BCM4373 brcmfmac bring-up: TRX firmware loading, CLM blob, USB ID patch, regulatory domain, WPA2 association verified</li>
+					<li>Python-based automated SoC validation suite &mdash; 85% coverage, 60% reduction in regression cycle time</li>
+				</ul>
+			</div>
+
 			<div class="row d-flex justify-content-center">
 
 				<!-- PDF Tutor -->
@@ -719,6 +967,7 @@ body { height: 100%; overflow: hidden; }
 								<span class="tech-tag violet">Open Source</span>
 								<span class="tech-tag violet">Offline AI</span>
 							</div>
+							<p class="project-why">Built because existing AI study tools required cloud APIs and leaked lecture content. Needed a fully offline, privacy-safe alternative for embedded datasheets.</p>
 						</div>
 					</div>
 				</div>
@@ -736,6 +985,7 @@ body { height: 100%; overflow: hidden; }
 								<span class="tech-tag">MongoDB</span>
 								<span class="tech-tag violet">CI/CD</span>
 							</div>
+							<p class="project-why">Needed a repeatable, scriptable way to seed and verify test databases in the SoC validation pipeline without manual intervention.</p>
 						</div>
 					</div>
 				</div>
@@ -753,6 +1003,7 @@ body { height: 100%; overflow: hidden; }
 								<span class="tech-tag">Whisper</span>
 								<span class="tech-tag violet">NLP</span>
 							</div>
+							<p class="project-why">Built to make technical conference talks accessible in native languages without waiting for official subtitles or dubbing.</p>
 						</div>
 					</div>
 				</div>
@@ -802,6 +1053,7 @@ body { height: 100%; overflow: hidden; }
 				<a href="https://github.com/Ashut90" target="_blank" rel="noopener" class="btn btn-primary py-3 px-5">GitHub Profile</a>
 			</div>
 		</div>
+		<div class="section-wayfinding">Projects &mdash; <a class="wayfinding-link" href="#" data-nav="contact">Contact &rarr;</a> &nbsp;&middot;&nbsp; <a class="wayfinding-link" href="#" data-nav="about">About &rarr;</a></div>
 	</div>
 </section>
 

@@ -108,6 +108,35 @@
     }
     .github-cta h3 { color: #fff; margin-bottom: 20px; }
     .github-cta p  { color: rgba(255,255,255,0.5); margin-bottom: 30px; }
+
+    /* Proprietary work block */
+    .proprietary-work {
+      background: rgba(0,212,255,0.03);
+      border: 1px solid rgba(0,212,255,0.12);
+      border-radius: 10px; padding: 26px 28px; margin-bottom: 48px;
+    }
+    .proprietary-disclaimer {
+      font-size: 0.83rem; color: rgba(255,255,255,0.4); margin-bottom: 16px; font-style: italic;
+    }
+    .proprietary-list { list-style: none; padding: 0; margin: 0; }
+    .proprietary-list li {
+      font-family: 'Courier New', Courier, monospace; font-size: 0.8rem;
+      color: rgba(255,255,255,0.72); border-left: 2px solid rgba(0,212,255,0.55);
+      padding-left: 12px; line-height: 1.8; margin-bottom: 11px;
+    }
+    .proprietary-list li:last-child { margin-bottom: 0; }
+
+    /* Why it exists */
+    .project-why {
+      font-size: 0.76rem; color: rgba(255,255,255,0.32); font-style: italic;
+      margin: 10px 0 0 0; border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 7px; line-height: 1.5;
+    }
+  </style>
+
+  <style>
+  @keyframes pageEnter { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
+  body { animation: pageEnter 0.2s ease-out both; }
   </style>
 </head>
 
@@ -128,6 +157,7 @@
           <li class="nav-item"><a href="resume.html" class="nav-link"><span>Resume</span></a></li>
           <li class="nav-item active"><a href="projects.html" class="nav-link"><span>Projects</span></a></li>
           <li class="nav-item"><a href="contact.html" class="nav-link"><span>Contact</span></a></li>
+          <li class="nav-item"><a href="https://drive.google.com/uc?export=download&id=137VJWeKOUD20bLV9FzSIlnfJ-X73D0cB" class="cv-dl-btn" target="_blank" rel="noopener">Download CV</a></li>
         </ul>
       </div>
     </div>
@@ -145,9 +175,21 @@
   <section class="project-grid" style="background:#111;">
     <div class="container">
 
+      <!-- Proprietary / NDA work -->
+      <div class="proprietary-work">
+        <h5 style="color:#00d4ff;font-size:0.9rem;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;">Professional Work (Proprietary)</h5>
+        <p class="proprietary-disclaimer">The following are production deliverables from Elytone Electronics. Full source is under NDA; details are shared at interview level.</p>
+        <ul class="proprietary-list">
+          <li>USB 2.0 Wi-Fi device driver (brcmfmac) for ADSP-SC598 on Yocto 5.0 / kernel 6.12 &mdash; interrupt handling, DMA ring buffers, URB lifecycle, upstreamed to ADI Yocto-Standard</li>
+          <li>Secure bootloader with rollback protection for ARM Cortex-M4 (AMP140C4) in bare-metal + FreeRTOS environments</li>
+          <li>BCM4373 brcmfmac bring-up: TRX firmware loading, CLM blob, USB ID patch, regulatory domain, WPA2 association verified</li>
+          <li>Python-based automated SoC validation suite &mdash; 85% coverage, 60% reduction in regression cycle time</li>
+        </ul>
+      </div>
+
       <!-- Featured Projects -->
       <span class="section-label">Selected Work</span>
-      <h2 class="section-title">Featured Projects</h2>
+      <h2 class="section-title">Open-Source Projects</h2>
 
       <div class="row justify-content-center">
 
@@ -165,6 +207,7 @@
                 <span class="tech-tag violet">Open Source</span>
                 <span class="tech-tag violet">Offline AI</span>
               </div>
+              <p class="project-why">Built because existing AI study tools required cloud APIs and leaked lecture content. Needed a fully offline, privacy-safe alternative for embedded datasheets.</p>
             </div>
             <div class="proj-footer">
               <span class="stars"><span>★</span> 2</span>
@@ -187,6 +230,7 @@
                 <span class="tech-tag green">Real-Time</span>
                 <span class="tech-tag violet">NLP</span>
               </div>
+              <p class="project-why">Built to make technical conference talks accessible in native languages without waiting for official subtitles or dubbing.</p>
             </div>
             <div class="proj-footer">
               <span class="stars"><span>★</span> 0</span>
@@ -208,6 +252,7 @@
                 <span class="tech-tag violet">CI/CD</span>
                 <span class="tech-tag green">Published Package</span>
               </div>
+              <p class="project-why">Needed a repeatable, scriptable way to seed and verify test databases in the SoC validation pipeline without manual intervention.</p>
             </div>
             <div class="proj-footer">
               <span class="stars"><span>★</span> 2</span>
