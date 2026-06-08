@@ -47,9 +47,15 @@
     var link = document.querySelector('[data-nav="' + key + '"]');
     if (link) { var ni = link.closest('.nav-item'); if (ni) ni.classList.add('active'); }
 
-    /* Matrix canvas: only run on home to save CPU */
-    var canvas = document.getElementById('matrixCanvas');
-    if (canvas) canvas.style.display = (key === 'home') ? 'block' : 'none';
+    /* Matrix canvas + vignette: only visible on home */
+    var canvas   = document.getElementById('matrixCanvas');
+    var vignette = document.getElementById('matrix-vignette');
+    var isHome   = (key === 'home');
+    if (canvas)   canvas.style.display   = isHome ? 'block' : 'none';
+    if (vignette) vignette.style.display = isHome ? 'block' : 'none';
+
+    /* Rebuild connector lines when home is re-entered */
+    if (isHome && window.buildNavConnectors) setTimeout(window.buildNavConnectors, 120);
 
     /* Update URL hash without full navigation */
     if (updateHash !== false) {

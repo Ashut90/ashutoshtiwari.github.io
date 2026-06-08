@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
@@ -232,26 +233,56 @@
 
 
 /* ===== GEEKY ANIMATIONS ===== */
-#home-section {
-  position: relative;
-}
-/* Canvas sits BELOW the carousel (z-index:1) so text stays readable */
+/* Canvas: full-viewport fixed layer, sits behind all SPA sections */
 #matrixCanvas {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 60%;
-  height: 100%;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
   display: block;
   z-index: 0;
   pointer-events: none;
 }
-/* Right image panel: transparent so canvas behind it shows through */
+/* Radial dark vignette — text on left stays readable */
+#matrix-vignette {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 1;
+  display: none;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 78% 78% at 28% 44%,
+      rgba(0,0,0,0.92) 0%,
+      rgba(0,0,0,0.58) 36%,
+      rgba(0,0,0,0.18) 68%,
+      transparent 100%);
+}
+/* Right panel becomes the floating monitor-icon stage */
 #hero-anim-wrap {
   background: transparent !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
 }
-@media (max-width: 991.98px) {
-  #matrixCanvas { width: 100%; z-index: 0; }
+/* Floating glowing monitor icon */
+.monitor-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 108px;
+  height: 108px;
+  border: 2px solid rgba(0,255,204,0.42);
+  border-radius: 22px;
+  background: rgba(0,255,204,0.04);
+  box-shadow: 0 0 28px rgba(0,255,204,0.20),
+              inset 0 0 20px rgba(0,255,204,0.05);
+  animation: monitorPulse 3.2s ease-in-out infinite;
+  position: relative;
+  z-index: 10;
+}
+@keyframes monitorPulse {
+  0%, 100% { box-shadow: 0 0 28px rgba(0,255,204,0.20), inset 0 0 20px rgba(0,255,204,0.05); }
+  50%       { box-shadow: 0 0 56px rgba(0,255,204,0.48), inset 0 0 32px rgba(0,255,204,0.10); }
 }
 
 /* ══════════════════════════════════════════════
@@ -290,10 +321,10 @@ body { height: 100%; overflow: hidden; overflow-x: hidden; }
   z-index: 2;
 }
 
-/* Hero: scrollable so flash-cards appear below the fold */
-#home-section.view-section              { overflow-y: auto; }
+/* Hero: scrollable so flash-cards appear below the fold; transparent so canvas shows */
+#home-section.view-section              { overflow-y: auto; background: transparent !important; }
 #home-section .home-slider,
-#home-section .slider-item              { height: calc(100vh - var(--nav-h)) !important; min-height: unset !important; flex-shrink: 0; }
+#home-section .slider-item              { height: calc(100vh - var(--nav-h)) !important; min-height: unset !important; flex-shrink: 0; background: transparent !important; }
 #home-section .js-fullheight            { height: calc(100vh - var(--nav-h)) !important; }
 
 /* Bottom breathing room for scrollable sections */
@@ -501,7 +532,7 @@ body { height: 100%; overflow: hidden; overflow-x: hidden; }
   display: inline-block;
   margin-left: 2px;
   font-size: 0.6rem;
-  color: rgba(100, 255, 218, 0.6);
+  color: rgba(0, 255, 65, 0.65);
   animation: cursorBlink 1.1s step-end infinite;
   vertical-align: middle;
 }
@@ -535,10 +566,11 @@ body { height: 100%; overflow: hidden; overflow-x: hidden; }
 
 /* ── Navigation Flash Cards ── */
 .nav-cards-section {
-  background: #0a0a0a;
+  background: rgba(6,8,14,0.88);
   padding: 0 0 80px;
   position: relative;
   z-index: 4;
+  backdrop-filter: blur(2px);
 }
 .nav-cards-heading {
   text-align: center;
@@ -609,14 +641,14 @@ body { height: 100%; overflow: hidden; overflow-x: hidden; }
 .nav-card:hover::after { opacity: 1; }
 .nav-card:hover::before { color: rgba(0,212,255,0.85); transform: translate(4px,-2px); }
 .nav-card-cmd {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
   font-size: 0.76rem;
   font-weight: 700;
-  color: rgba(0,212,255,0.6);
+  color: #00ff41;
   letter-spacing: 0.05em;
   margin-bottom: 2px;
 }
-.nav-card-cmd::before { content: '$ '; color: rgba(100,255,218,0.45); }
+.nav-card-cmd::before { content: '$ '; color: rgba(0,255,65,0.50); }
 .nav-card-title {
   font-size: 1.05rem;
   font-weight: 700;
@@ -639,9 +671,9 @@ body { height: 100%; overflow: hidden; overflow-x: hidden; }
 .nav-card-cta::after {
   background: linear-gradient(135deg, rgba(100,255,218,0.07) 0%, transparent 55%) !important;
 }
-.nav-card-cta::before { content: '↓'; color: rgba(100,255,218,0.45); }
-.nav-card-cta .nav-card-cmd { color: rgba(100,255,218,0.65); }
-.nav-card-cta .nav-card-cmd::before { color: rgba(100,255,218,0.45); }
+.nav-card-cta::before { content: '↓'; color: rgba(0,255,65,0.55); }
+.nav-card-cta .nav-card-cmd { color: #00ff41; }
+.nav-card-cta .nav-card-cmd::before { color: rgba(0,255,65,0.50); }
 .nav-card-cta .nav-card-title { color: #64ffda; }
 .nav-card-cta:hover {
   border-color: rgba(100,255,218,0.6) !important;
@@ -676,19 +708,27 @@ body { height: 100%; overflow: hidden; overflow-x: hidden; }
 
 
   </head>
-  <body >
-	  
-	  
+  <body>
+  <canvas id="matrixCanvas"></canvas>
+  <div id="matrix-vignette"></div>
 
 	  <section id="home-section" class="hero view-section active">
-      <canvas id="matrixCanvas"></canvas>
 		  <div class="home-slider  owl-carousel">
 	       <div class="slider-item ">
 	      	<div class="overlay"></div>
 	         <div class="container">
 	          <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
-	          	<div class="one-third js-fullheight order-md-last img" id="hero-anim-wrap">
-	          	 <div class="overlay"></div>
+	          	<div class="one-third js-fullheight order-md-last" id="hero-anim-wrap">
+	          	  <div class="monitor-icon-wrap" id="hero-monitor">
+	          	    <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+	          	      <rect x="4" y="7" width="64" height="42" rx="5" stroke="#00ffcc" stroke-width="2"/>
+	          	      <path d="M24 49 L20 60 M48 49 L52 60" stroke="#00ffcc" stroke-width="2" stroke-linecap="round"/>
+	          	      <line x1="16" y1="60" x2="56" y2="60" stroke="#00ffcc" stroke-width="2" stroke-linecap="round"/>
+	          	      <rect x="12" y="15" width="48" height="26" rx="2" fill="none" stroke="#00ffcc" stroke-width="1" stroke-dasharray="3 2" opacity="0.55"/>
+	          	      <circle cx="36" cy="28" r="7" fill="rgba(0,255,204,0.12)" stroke="#00ffcc" stroke-width="1.5"/>
+	          	      <circle cx="36" cy="28" r="2.5" fill="#00ffcc"/>
+	          	    </svg>
+	          	  </div>
 	          	</div>
 		          <div class="one-forth d-flex  align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
 		          	<div class="text">
@@ -696,7 +736,7 @@ body { height: 100%; overflow: hidden; overflow-x: hidden; }
 			            <h1 class="mb-4 mt-3">I'm <span>Ashutosh Tiwari</span></h1>
 
 			            <h2>Embedded Software Engineer &amp; Firmware Developer</h2>
-						<p style="font-family:'Courier New',Courier,monospace;font-size:13px;color:#a0c4ff;background:rgba(160,196,255,0.05);border:1px solid rgba(160,196,255,0.15);border-radius:6px;padding:10px 14px;margin:14px 0 10px;line-height:1.9;letter-spacing:0.08em;">BCM4373 USB WiFi bring-up &nbsp;·&nbsp; ADSP-SC598 Yocto 5.0 BSP<br>brcmfmac driver porting &nbsp;·&nbsp; SHARC-ALSA &nbsp;·&nbsp; AirPlay stream debugging</p>
+						<p style="font-family:'JetBrains Mono','Courier New',Courier,monospace;font-size:13px;color:#a0c4ff;background:rgba(160,196,255,0.05);border:1px solid rgba(160,196,255,0.15);border-radius:6px;padding:10px 14px;margin:14px 0 10px;line-height:1.9;letter-spacing:0.08em;">BCM4373 USB WiFi bring-up &nbsp;·&nbsp; ADSP-SC598 Yocto 5.0 BSP<br>brcmfmac driver porting &nbsp;·&nbsp; SHARC-ALSA &nbsp;·&nbsp; AirPlay stream debugging</p>
 						<p style="color:#00d4ff;font-size:0.82rem;margin-bottom:22px;font-weight:600;">&#9656; Open to BSP / Embedded Linux roles in Taiwan or remote</p>
 			            <p><a href="https://github.com/Ashut90" class="btn btn-primary py-3 px-4">Github</a>
 		            </div>
@@ -726,23 +766,23 @@ body { height: 100%; overflow: hidden; overflow-x: hidden; }
 				<a href="#" class="nav-card" data-nav="resume">
 					<div class="nav-card-cmd">cat cv.txt</div>
 					<div class="nav-card-title">Resume</div>
-					<p class="nav-card-desc">Elytone Electronics · M.Sc ECE · 2 SoCs shipped</p>
+					<p class="nav-card-desc">Elytone Electronics · M.Sc ECE · 2 SoCs shipped · 4.5 yrs</p>
 				</a>
 
 				<a href="#" class="nav-card" data-nav="projects">
 					<div class="nav-card-cmd">git log --all</div>
 					<div class="nav-card-title">Projects</div>
-					<p class="nav-card-desc">USB driver · brcmfmac BSP · AI tools · Python utils</p>
+					<p class="nav-card-desc">SDO Emitter · brcmfmac BSP · AI tools · Python utils</p>
 				</a>
 
 				<a href="#" class="nav-card" data-nav="contact">
-					<div class="nav-card-cmd">ping hire-me</div>
+					<div class="nav-card-cmd">blog hire-me</div>
 					<div class="nav-card-title">Contact</div>
 					<p class="nav-card-desc">Open to BSP / Embedded Linux · Taiwan or remote</p>
 				</a>
 
 				<a href="https://drive.google.com/uc?export=download&id=137VJWeKOUD20bLV9FzSIlnfJ-X73D0cB" class="nav-card nav-card-cta" target="_blank" rel="noopener">
-					<div class="nav-card-cmd">curl -O cv.pdf</div>
+					<div class="nav-card-cmd">cat -o cv.pdf</div>
 					<div class="nav-card-title">Download CV</div>
 					<p class="nav-card-desc">PDF Resume · Updated Jun 2026 · Google Drive</p>
 				</a>
