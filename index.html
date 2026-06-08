@@ -14,7 +14,7 @@
 
   <canvas id="matrix-canvas"></canvas>
 
-  <!-- SVG connector overlay (lines drawn by connectors.js) -->
+  <!-- SVG connector overlay -->
   <svg id="connectors" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <linearGradient id="connector-grad" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -24,7 +24,7 @@
     </defs>
   </svg>
 
-  <!-- Floating monitor icon — top right, CONNECTOR ORIGIN -->
+  <!-- Floating monitor icon — CONNECTOR ORIGIN — fixed top right -->
   <div class="floating-monitor" id="monitor-anchor">
     <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect x="4" y="5" width="64" height="44" rx="6" stroke="#00FFCC" stroke-width="2" fill="rgba(0,255,204,0.05)"/>
@@ -37,11 +37,31 @@
     </svg>
   </div>
 
-  <!-- Home content wrapper -->
-  <div id="home-wrapper">
+  <!-- ═══════════════════════════════════════════════
+       FIXED HEADER — locked to top, always above content
+  ═══════════════════════════════════════════════ -->
+  <header class="site-header">
+    <div class="site-logo">Ashutosh Tiwari</div>
 
-    <!-- Hero zone (height:0 — hero is absolute overlay) -->
-    <div class="hero-zone">
+    <nav class="main-nav">
+      <a href="about.html"    class="nav-item active">About</a>
+      <a href="skills.html"   class="nav-item">Skills</a>
+      <a href="resume.html"   class="nav-item">Resume</a>
+      <a href="projects.html" class="nav-item">Projects</a>
+      <a href="contact.html"  class="nav-item">Contact</a>
+    </nav>
+
+    <a href="https://drive.google.com/uc?export=download&id=137VJWeKOUD20bLV9FzSIlnfJ-X73D0cB"
+       class="btn-cv-header" target="_blank" rel="noopener">Download CV</a>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════
+       MAIN CONTENT — offset by header height (80px)
+  ═══════════════════════════════════════════════ -->
+  <main class="content-wrapper">
+
+    <!-- Hero section — normal document flow, left-aligned -->
+    <section class="hero-section">
       <div class="hero">
         <p class="hello">HELLO!</p>
 
@@ -54,79 +74,68 @@
           BCM4373 USB WiFi bring-up &nbsp;·&nbsp; ADSP-SC598 Yocto 5.0 BSP<br>
           brcmfmac driver porting &nbsp;·&nbsp; SHARC-ALSA &nbsp;·&nbsp; AirPlay<br>
           stream debugging
-          <div id="monitor-anchor-inner">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="1" y="2" width="22" height="15" rx="2" stroke="#00FFCC" stroke-width="1.5"/>
-              <line x1="8" y1="17" x2="6" y2="22" stroke="#00FFCC" stroke-width="1.5" stroke-linecap="round"/>
-              <line x1="16" y1="17" x2="18" y2="22" stroke="#00FFCC" stroke-width="1.5" stroke-linecap="round"/>
-              <line x1="4" y1="22" x2="20" y2="22" stroke="#00FFCC" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-          </div>
         </div>
 
         <p class="open-to">• Open to BSP / Embedded Linux roles in Taiwan or remote</p>
         <a class="btn-github" href="https://github.com/Ashut90" target="_blank" rel="noopener">GITHUB</a>
       </div>
-    </div>
+    </section>
 
-    <!-- Horizontal nav bar (margin-top:55vh positions it mid-viewport) -->
-    <nav class="home-nav">
-      <a href="about.html" class="nav-item active">About</a>
-      <a href="skills.html" class="nav-item">Skills</a>
-      <a href="resume.html" class="nav-item">Resume</a>
-      <a href="projects.html" class="nav-item">Projects</a>
-      <a href="contact.html" class="nav-item">Contact</a>
-    </nav>
+    <!-- Portal cards — clearly separated below hero -->
+    <section class="portal-grid-section">
+      <div class="grid-title">// explore portfolio</div>
 
-    <!-- Terminal navigation cards -->
-    <div class="cards-grid" id="cards-grid">
+      <div class="cards-grid" id="cards-grid">
 
-      <a href="about.html" class="term-card" id="card-0">
-        <span class="cmd">$ whoami</span>
-        <h4>About</h4>
-        <p>4.5 yrs · BSP + Embedded Linux
+        <a href="about.html" class="term-card" id="card-0">
+          <span class="cmd">$ whoami</span>
+          <h4>About</h4>
+          <p>4.5 yrs · BSP + Embedded Linux
 New Taipei City, Taiwan</p>
-      </a>
+        </a>
 
-      <a href="skills.html" class="term-card" id="card-1">
-        <span class="cmd">$ lsmod</span>
-        <h4>Skills</h4>
-        <p>Yocto 5.0 · Linux kernel · JTAG
+        <a href="skills.html" class="term-card" id="card-1">
+          <span class="cmd">$ lsmod</span>
+          <h4>Skills</h4>
+          <p>Yocto 5.0 · Linux kernel · JTAG
 Embedded C · ARM</p>
-      </a>
+        </a>
 
-      <a href="resume.html" class="term-card" id="card-2">
-        <span class="cmd">$ cat cv.txt</span>
-        <h4>Resume</h4>
-        <p>Elytone Electronics · 4.5 yrs
+        <a href="resume.html" class="term-card" id="card-2">
+          <span class="cmd">$ cat cv.txt</span>
+          <h4>Resume</h4>
+          <p>Elytone Electronics · 4.5 yrs
 3 jobs logged</p>
-      </a>
+        </a>
 
-      <a href="projects.html" class="term-card" id="card-3">
-        <span class="cmd">$ git log --all</span>
-        <h4>Projects</h4>
-        <p>SDO Emitter · Brcmfmac BSP
+        <a href="projects.html" class="term-card" id="card-3">
+          <span class="cmd">$ git log --all</span>
+          <h4>Projects</h4>
+          <p>SDO Emitter · Brcmfmac BSP
 AI tools · Python utils</p>
-      </a>
+        </a>
 
-      <a href="contact.html" class="term-card" id="card-4">
-        <span class="cmd">$ blog hire-me</span>
-        <h4>Contact</h4>
-        <p>Open to BSP / Embedded Linux
+        <a href="contact.html" class="term-card" id="card-4">
+          <span class="cmd">$ blog hire-me</span>
+          <h4>Contact</h4>
+          <p>Open to BSP / Embedded Linux
 Taiwan or remote</p>
-      </a>
+        </a>
 
-      <a href="https://drive.google.com/file/d/137VJWeKOUD20bLV9FzSIlnfJ-X73D0cB/view" class="term-card" id="card-5" target="_blank" rel="noopener">
-        <span class="cmd">$ cat -o cv.pdf</span>
-        <h4>Download CV</h4>
-        <p>Resume · Updated Jun 2026
+        <a href="https://drive.google.com/file/d/137VJWeKOUD20bLV9FzSIlnfJ-X73D0cB/view"
+           class="term-card" id="card-5" target="_blank" rel="noopener">
+          <span class="cmd">$ cat -o cv.pdf</span>
+          <h4>Download CV</h4>
+          <p>Resume · Updated Jun 2026
 Google Drive</p>
-      </a>
+        </a>
 
-    </div>
-  </div>
+      </div>
+    </section>
 
-  <!-- Floating chat widget -->
+  </main>
+
+  <!-- Chat widget (bottom right) -->
   <div class="chat-widget" id="chat-widget" role="button" aria-label="Contact me">
     <div class="chat-bubble">I have a question.</div>
     <div class="chat-bubble">Tell me more</div>
