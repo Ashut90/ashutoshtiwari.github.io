@@ -69,11 +69,17 @@
     if (homeBtn) homeBtn.style.display = isHome ? 'none' : 'flex';
     if (sectionLbl) sectionLbl.textContent = SECTION_LABELS[key] || '';
 
-    /* Re-trigger card stagger when returning to home */
+    /* Re-trigger all home animations on every home visit */
     if (isHome) {
+      var homeEl = document.getElementById('home-section');
+      if (homeEl) {
+        homeEl.classList.remove('home-enter');
+        void homeEl.offsetWidth;
+        homeEl.classList.add('home-enter');
+      }
+      /* Re-trigger nav-card stagger */
       document.querySelectorAll('.nav-card').forEach(function (card) {
         card.style.animation = 'none';
-        /* Force reflow so the browser registers the change */
         void card.offsetWidth;
         card.style.animation = '';
       });
