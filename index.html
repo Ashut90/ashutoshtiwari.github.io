@@ -253,11 +253,67 @@
 @media (max-width: 991.98px) {
   #matrixCanvas { width: 100%; z-index: 0; }
 }
+
+/* ══════════════════════════════════════════════
+   SPA SHELL — full-viewport tab architecture
+══════════════════════════════════════════════ */
+:root { --nav-h: 72px; }
+
+html { height: 100%; }
+body { height: 100%; overflow: hidden; }
+
+/* Every section is a fixed full-viewport layer */
+.view-section {
+  position: fixed;
+  top: var(--nav-h);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.28s ease, visibility 0s linear 0.28s;
+  z-index: 1;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,212,255,0.25) transparent;
+}
+.view-section::-webkit-scrollbar       { width: 4px; }
+.view-section::-webkit-scrollbar-track { background: transparent; }
+.view-section::-webkit-scrollbar-thumb { background: rgba(0,212,255,0.25); border-radius: 2px; }
+
+.view-section.active {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.28s ease, visibility 0s linear 0s;
+  z-index: 2;
+}
+
+/* Hero: no internal scroll — image fills the layer */
+#home-section.view-section              { overflow: hidden; }
+#home-section .home-slider,
+#home-section .slider-item              { height: 100% !important; min-height: unset !important; }
+#home-section .js-fullheight            { height: 100% !important; }
+
+/* Bottom breathing room for scrollable sections */
+#about-section.view-section,
+#skills-section.view-section,
+#resume-section.view-section,
+#project-section.view-section,
+#contact-section.view-section           { padding-bottom: 60px; }
+
+/* Active nav item — cyan underline indicator */
+#ftco-nav .nav-item.active > .nav-link > span {
+  color: #00d4ff;
+  border-bottom: 2px solid #00d4ff;
+  padding-bottom: 2px;
+}
 </style>
 
 
   </head>
-  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+  <body >
 	  
 	  
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
@@ -269,17 +325,17 @@
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav nav ml-auto">
-	          <li class="nav-item active"><a href="index.html" class="nav-link"><span>Home</span></a></li>
-	          <li class="nav-item"><a href="#about-section" class="nav-link"><span>About</span></a></li>
-	          <li class="nav-item"><a href="#skills-section" class="nav-link"><span>Skills</span></a></li>
-	          <li class="nav-item"><a href="resume.html" class="nav-link"><span>Resume</span></a></li>
-	          <li class="nav-item"><a href="projects.html" class="nav-link"><span>Projects</span></a></li>
-	          <li class="nav-item"><a href="contact.html" class="nav-link"><span>Contact</span></a></li>
+	          <li class="nav-item active"><a href="#" class="nav-link" data-nav="home"><span>Home</span></a></li>
+	          <li class="nav-item"><a href="#" class="nav-link" data-nav="about"><span>About</span></a></li>
+	          <li class="nav-item"><a href="#" class="nav-link" data-nav="skills"><span>Skills</span></a></li>
+	          <li class="nav-item"><a href="#" class="nav-link" data-nav="resume"><span>Resume</span></a></li>
+	          <li class="nav-item"><a href="#" class="nav-link" data-nav="projects"><span>Projects</span></a></li>
+	          <li class="nav-item"><a href="#" class="nav-link" data-nav="contact"><span>Contact</span></a></li>
 	        </ul>
 	      </div>
 	    </div>
 	  </nav>
-	  <section id="home-section" class="hero">
+	  <section id="home-section" class="hero view-section active">
       <canvas id="matrixCanvas"></canvas>
 		  <div class="home-slider  owl-carousel">
 	       <div class="slider-item ">
@@ -308,7 +364,7 @@
 
 
 
-    <section class="ftco-about img ftco-section ftco-no-pb" id="about-section">
+    <section class="ftco-about img ftco-section ftco-no-pb view-section" id="about-section">
     	<div class="container">
 			<div class="row">
 				<div class="row d-flex align-items-stretch">
@@ -388,7 +444,7 @@
 	<!-- ══════════════════════════════════════
 	     CORE COMPETENCIES SECTION
 	══════════════════════════════════════ -->
-	<section class="ftco-section" id="skills-section">
+	<section class="ftco-section view-section" id="skills-section">
 		<div class="container">
 			<div class="row justify-content-center pb-5">
 				<div class="col-md-10 heading-section text-center ftco-animate">
@@ -508,7 +564,7 @@
 	</section>
 
 
-    <section class="ftco-section ftco-no-pb" id="resume-section">
+    <section class="ftco-section ftco-no-pb view-section" id="resume-section">
     	<div class="container">
     		<div class="row justify-content-center pb-5">
           <div class="col-md-10 heading-section text-center ftco-animate">
@@ -635,7 +691,7 @@
     </section>
 
    
-	<section class="ftco-section" id="project-section">
+	<section class="ftco-section view-section" id="project-section">
 		<div class="container">
 			<div class="row justify-content-center mb-5 pb-5">
 				<div class="col-md-7 heading-section text-center ftco-animate">
@@ -738,8 +794,16 @@
 				  </div>
 				</div>
 			 </div>-->
+		
+		<div class="row justify-content-center mt-5 pt-3">
+			<div class="col-md-7 text-center ftco-animate">
+				<h3 style="color:#fff;margin-bottom:12px;">More projects on <span style="color:#00d4ff;">GitHub</span></h3>
+				<p style="color:rgba(255,255,255,0.5);margin-bottom:24px;">Passionate about firmware, embedded systems, and building reliable hardware-software interfaces</p>
+				<a href="https://github.com/Ashut90" target="_blank" rel="noopener" class="btn btn-primary py-3 px-5">GitHub Profile</a>
 			</div>
-	</section>
+		</div>
+	</div>
+</section>
 
 	<section class="ftco-section ftco-no-pt ftco-no-pb ftco-counter img" id="section-counter">
 	
@@ -764,7 +828,7 @@
 
 
 
-    <section class="ftco-section contact-section ftco-no-pb" id="contact-section">
+    <section class="ftco-section contact-section ftco-no-pb view-section" id="contact-section">
       <div class="container">
       	<div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 heading-section text-center ftco-animate">
@@ -827,19 +891,6 @@
  </section>
 
 
- 
-	
-    <footer class="ftco-footer ftco-section">
-		<div class="container">
-		  <div class="row">
-			<div class="col-md-12 text-center">
-  
-			  <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> Ashutosh Tiwari &mdash; <a href="resume.html">Resume</a> &middot; <a href="projects.html">Projects</a> &middot; <a href="contact.html">Contact</a></p>
-			</div>
-		  </div>
-		</div>
-	  </footer>
-
 
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
@@ -860,6 +911,7 @@
   
   <script src="js/main.js"></script>
   <script src="js/geeky-animations.js"></script>
+  <script src="js/spa.js"></script>
 
   
 
