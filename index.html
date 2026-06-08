@@ -123,20 +123,17 @@
   box-shadow: 0 0 20px rgba(0, 212, 255, 0.09);
   background: rgba(0, 212, 255, 0.06);
 }
-.competency-card .comp-icon {
-  font-size: 26px;
-  margin-bottom: 10px;
-  display: block;
-}
+.competency-card .comp-icon { display: none; }
 .competency-card h5 {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
-  letter-spacing: 1.8px;
+  letter-spacing: 2px;
   text-transform: uppercase;
   color: #00d4ff;
   margin-bottom: 12px;
   border-bottom: 1px solid rgba(0, 212, 255, 0.2);
   padding-bottom: 8px;
+  font-family: "Courier New", Courier, monospace;
 }
 .comp-tags {
   display: flex;
@@ -150,6 +147,14 @@
   background: rgba(255,255,255,0.05);
   color: rgba(255,255,255,0.72);
   border: 1px solid rgba(255,255,255,0.09);
+}
+.comp-tags span.code {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 11px;
+  background: rgba(0,212,255,0.08);
+  color: #00d4ff;
+  border-color: rgba(0,212,255,0.22);
+  letter-spacing: 0.3px;
 }
 
 /* ── Project card enhancements ── */
@@ -290,7 +295,7 @@
 			            <h1 class="mb-4 mt-3">I'm <span>Ashutosh Tiwari</span></h1>
 
 			            <h2>Embedded Software Engineer &amp; Firmware Developer</h2>
-						<p style="color:rgba(255,255,255,0.72);font-size:0.92rem;margin:14px 0 6px;letter-spacing:0.3px;">BCM4373 USB WiFi bring-up &nbsp;&middot;&nbsp; ADSP-SC598 Yocto 5.0 &nbsp;&middot;&nbsp; ARM Cortex-M4 bootloader</p>
+						<p style="font-family:'Courier New',Courier,monospace;font-size:12px;color:rgba(0,212,255,0.9);background:rgba(0,212,255,0.06);border:1px solid rgba(0,212,255,0.18);border-radius:6px;padding:10px 14px;margin:14px 0 10px;line-height:2;letter-spacing:0.4px;">BCM4373 USB WiFi bring-up<br>ADSP-SC598 · Yocto 5.0<br>ARM Cortex-M4 bootloader</p>
 						<p style="color:#00d4ff;font-size:0.82rem;margin-bottom:22px;font-weight:600;">&#9656; Open to BSP / Embedded Linux roles in Taiwan or remote</p>
 			            <p><a href="https://github.com/Ashut90" class="btn btn-primary py-3 px-4">Github</a>
 		            </div>
@@ -355,15 +360,10 @@
 									&#10003; Open to full-time roles and freelance projects worldwide — embedded systems, firmware, and embedded Linux engineering.
 								</p>
 								<ul class="about-info mt-4 px-md-0 px-2">
-									<li class="d-flex"><span>Profile:</span> <span>Firmware / Embedded Software Engineer</span></li>
-									<li class="d-flex"><span>Domain:</span> <span>Embedded Systems, Silicon Validation, SoC Development, Linux Kernel</span></li>
-									<li class="d-flex"><span>Education:</span> <span>Bachelor of Technology (ECE)</span></li>
-									<li class="d-flex"><span>Education:</span> <span>Master of Science in Electrical &amp; Computer Engineering</span></li>
-									<li class="d-flex"><span>Language:</span> <span>English, Hindi</span></li>
-									<li class="d-flex"><span>Languages:</span> <span>Embedded C (Expert), Python, C++, Bash Scripting</span></li>
-										<li class="d-flex"><span>Hardware:</span> <span>SoC Architecture, Interrupt Handling, DMA, USB 2.0, I2C, SPI, UART, GPIO</span></li>
-										<li class="d-flex"><span>Tools:</span> <span>GDB, JTAG, Logic Analyzers, Yocto Linux, ADB, Git, Gerrit &amp; JIRA</span></li>
-
+									<li class="d-flex"><span>Status:</span> <span style="color:#00d4ff;font-weight:600;">Open — BSP / Embedded Linux</span></li>
+									<li class="d-flex"><span>Location:</span> <span>New Taipei City, Taiwan</span></li>
+									<li class="d-flex"><span>Stack:</span> <span style="font-family:'Courier New',monospace;font-size:0.82rem;">Embedded C · Yocto · Linux Kernel · JTAG</span></li>
+									<li class="d-flex"><span>Education:</span> <span>M.Sc. ECE — Tamkang University</span></li>
 								</ul>
 							</div>
 						</div>
@@ -401,40 +401,37 @@
 
 				<div class="col-md-3 col-sm-6 ftco-animate mb-4">
 					<div class="competency-card">
-						<span class="comp-icon">💻</span>
 						<h5>Languages</h5>
 						<div class="comp-tags">
-							<span>Embedded C</span>
-							<span>Python</span>
-							<span>C++</span>
-							<span>Bash Scripting</span>
+							<span class="code">Embedded C</span>
+							<span class="code">Python</span>
+							<span class="code">C++</span>
+							<span class="code">Bash</span>
 						</div>
 					</div>
 				</div>
 
 				<div class="col-md-3 col-sm-6 ftco-animate mb-4">
 					<div class="competency-card">
-						<span class="comp-icon">⚙️</span>
 						<h5>Embedded Systems</h5>
 						<div class="comp-tags">
-							<span>ARM Cortex-M4</span>
-							<span>ADSP-SC598</span>
-							<span>AMP140C4</span>
+							<span class="code">ARM Cortex-M4</span>
+							<span class="code">ADSP-SC598</span>
+							<span class="code">AMP140C4</span>
 							<span>Memory Management</span>
-							<span>Bitwise Operations</span>
+							<span>Bootloader Design</span>
 						</div>
 					</div>
 				</div>
 
 				<div class="col-md-3 col-sm-6 ftco-animate mb-4">
 					<div class="competency-card">
-						<span class="comp-icon">🐧</span>
 						<h5>Linux &amp; Kernel</h5>
 						<div class="comp-tags">
-							<span>Yocto Linux</span>
+							<span class="code">Yocto 5.0</span>
 							<span>Device Drivers</span>
 							<span>Kernel Development</span>
-							<span>System-level Programming</span>
+							<span class="code">brcmfmac</span>
 							<span>Peripheral Bring-up</span>
 						</div>
 					</div>
@@ -442,11 +439,10 @@
 
 				<div class="col-md-3 col-sm-6 ftco-animate mb-4">
 					<div class="competency-card">
-						<span class="comp-icon">🔀</span>
 						<h5>Version Control</h5>
 						<div class="comp-tags">
-							<span>Git</span>
-							<span>Gerrit</span>
+							<span class="code">Git</span>
+							<span class="code">Gerrit</span>
 							<span>GitHub</span>
 							<span>CI/CD</span>
 						</div>
@@ -455,38 +451,35 @@
 
 				<div class="col-md-3 col-sm-6 ftco-animate mb-4">
 					<div class="competency-card">
-						<span class="comp-icon">🔍</span>
 						<h5>Debugging Tools</h5>
 						<div class="comp-tags">
-							<span>GDB</span>
-							<span>JTAG</span>
+							<span class="code">GDB</span>
+							<span class="code">JTAG</span>
 							<span>Logic Analyzers</span>
 							<span>Oscilloscopes</span>
-							<span>ADB</span>
+							<span class="code">ADB</span>
 						</div>
 					</div>
 				</div>
 
 				<div class="col-md-3 col-sm-6 ftco-animate mb-4">
 					<div class="competency-card">
-						<span class="comp-icon">🔌</span>
 						<h5>Hardware Interfaces</h5>
 						<div class="comp-tags">
 							<span>SoC Architecture</span>
 							<span>Interrupt Handling</span>
-							<span>DMA</span>
-							<span>USB 2.0</span>
-							<span>I2C</span>
-							<span>SPI</span>
-							<span>UART</span>
-							<span>GPIO</span>
+							<span class="code">DMA</span>
+							<span class="code">USB 2.0</span>
+							<span class="code">I2C</span>
+							<span class="code">SPI</span>
+							<span class="code">UART</span>
+							<span class="code">GPIO</span>
 						</div>
 					</div>
 				</div>
 
 				<div class="col-md-3 col-sm-6 ftco-animate mb-4">
 					<div class="competency-card">
-						<span class="comp-icon">✅</span>
 						<h5>Validation</h5>
 						<div class="comp-tags">
 							<span>Silicon Validation</span>
@@ -500,12 +493,12 @@
 
 				<div class="col-md-3 col-sm-6 ftco-animate mb-4">
 					<div class="competency-card">
-						<span class="comp-icon">📱</span>
-						<h5>Mobile Platforms</h5>
+						<h5>AI / ML Tools</h5>
 						<div class="comp-tags">
-							<span>Android Kernel</span>
-							<span>Android Embedded</span>
-							<span>Mobile Device Validation</span>
+							<span class="code">Ollama</span>
+							<span class="code">Whisper</span>
+							<span>LLM Integration</span>
+							<span>CNN / Computer Vision</span>
 						</div>
 					</div>
 				</div>
