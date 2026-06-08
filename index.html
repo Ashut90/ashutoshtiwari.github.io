@@ -135,6 +135,9 @@ Google Drive</p>
 
   </main>
 
+  <!-- Dim overlay — appears behind tawk.to popup -->
+  <div id="chat-overlay"></div>
+
   <!-- Cyberpunk chat terminal — powered by tawk.to -->
   <div class="chat-terminal" id="chat-terminal" role="button" aria-label="Open live chat">
     <div class="ct-titlebar">
@@ -164,25 +167,50 @@ Google Drive</p>
     <div class="ct-scanlines"></div>
   </div>
 
+  <!-- Contact panel — opens above terminal widget -->
+  <div id="contact-panel" class="cp-panel" aria-hidden="true">
+    <div class="cp-header">
+      <div class="ct-dots">
+        <span class="ct-dot ct-red"></span>
+        <span class="ct-dot ct-yellow"></span>
+        <span class="ct-dot ct-green"></span>
+      </div>
+      <span class="cp-title">ash@portfolio &mdash; contact</span>
+      <button class="cp-close" id="cp-close" aria-label="Close">&#x2715;</button>
+    </div>
+    <div class="cp-body">
+      <div class="cp-boot">
+        <span class="ct-prompt">root@net:~$&nbsp;</span><span class="ct-text">list --channels open</span>
+      </div>
+      <div class="cp-channels">
+        <a href="mailto:ash945512@gmail.com" class="cp-channel">
+          <span class="cp-ch-key">@ email</span>
+          <span class="cp-ch-arrow">&rarr;</span>
+          <span class="cp-ch-val">ash945512@gmail.com</span>
+        </a>
+        <a href="https://www.linkedin.com/in/ashutosh-tiwari94/" target="_blank" rel="noopener" class="cp-channel">
+          <span class="cp-ch-key">in linkedin</span>
+          <span class="cp-ch-arrow">&rarr;</span>
+          <span class="cp-ch-val">ashutosh-tiwari94</span>
+        </a>
+        <a href="https://github.com/Ashut90" target="_blank" rel="noopener" class="cp-channel">
+          <span class="cp-ch-key">gh github</span>
+          <span class="cp-ch-arrow">&rarr;</span>
+          <span class="cp-ch-val">Ashut90</span>
+        </a>
+      </div>
+      <div class="cp-divider">&#9472;&#9472; quick message &#9472;&#9472;</div>
+      <div class="cp-msg-row">
+        <span class="ct-prompt">you:~$&nbsp;</span>
+        <input type="text" id="cp-msg" class="cp-msg-input" placeholder="type + enter..." autocomplete="off" spellcheck="false">
+      </div>
+      <div class="cp-status" id="cp-status"></div>
+    </div>
+    <div class="ct-scanlines"></div>
+  </div>
+
   <script src="js/matrix.js"></script>
   <script src="js/connectors.js"></script>
   <script src="js/home.js"></script>
-
-  <!-- tawk.to — hide default launcher, use custom terminal above -->
-  <script>
-    var Tawk_API = Tawk_API || {};
-    Tawk_API.onLoad = function () { Tawk_API.hideWidget(); };
-  </script>
-  <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-      s1.async=true;
-      s1.src='https://embed.tawk.to/6a2579146d77da1c401dee0a/1jqh61uc7';
-      s1.charset='UTF-8';
-      s1.setAttribute('crossorigin','*');
-      s0.parentNode.insertBefore(s1,s0);
-    })();
-  </script>
 </body>
 </html>
