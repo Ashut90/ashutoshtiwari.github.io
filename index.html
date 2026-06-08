@@ -167,26 +167,50 @@ Google Drive</p>
     <div class="ct-scanlines"></div>
   </div>
 
+  <!-- Contact panel — opens above terminal widget -->
+  <div id="contact-panel" class="cp-panel" aria-hidden="true">
+    <div class="cp-header">
+      <div class="ct-dots">
+        <span class="ct-dot ct-red"></span>
+        <span class="ct-dot ct-yellow"></span>
+        <span class="ct-dot ct-green"></span>
+      </div>
+      <span class="cp-title">ash@portfolio &mdash; contact</span>
+      <button class="cp-close" id="cp-close" aria-label="Close">&#x2715;</button>
+    </div>
+    <div class="cp-body">
+      <div class="cp-boot">
+        <span class="ct-prompt">root@net:~$&nbsp;</span><span class="ct-text">list --channels open</span>
+      </div>
+      <div class="cp-channels">
+        <a href="mailto:ash945512@gmail.com" class="cp-channel">
+          <span class="cp-ch-key">@ email</span>
+          <span class="cp-ch-arrow">&rarr;</span>
+          <span class="cp-ch-val">ash945512@gmail.com</span>
+        </a>
+        <a href="https://www.linkedin.com/in/ashutosh-tiwari94/" target="_blank" rel="noopener" class="cp-channel">
+          <span class="cp-ch-key">in linkedin</span>
+          <span class="cp-ch-arrow">&rarr;</span>
+          <span class="cp-ch-val">ashutosh-tiwari94</span>
+        </a>
+        <a href="https://github.com/Ashut90" target="_blank" rel="noopener" class="cp-channel">
+          <span class="cp-ch-key">gh github</span>
+          <span class="cp-ch-arrow">&rarr;</span>
+          <span class="cp-ch-val">Ashut90</span>
+        </a>
+      </div>
+      <div class="cp-divider">&#9472;&#9472; quick message &#9472;&#9472;</div>
+      <div class="cp-msg-row">
+        <span class="ct-prompt">you:~$&nbsp;</span>
+        <input type="text" id="cp-msg" class="cp-msg-input" placeholder="type + enter..." autocomplete="off" spellcheck="false">
+      </div>
+      <div class="cp-status" id="cp-status"></div>
+    </div>
+    <div class="ct-scanlines"></div>
+  </div>
+
   <script src="js/matrix.js"></script>
   <script src="js/connectors.js"></script>
   <script src="js/home.js"></script>
-
-  <!-- Crisp live chat — cyan themed, hidden bubble, terminal is the trigger -->
-  <script>
-    window.$crisp = [];
-    window.CRISP_WEBSITE_ID = "d60cc46f-4861-43e5-a4c8-f9e31089579c";
-    $crisp.push(["config", "color:theme", ["#00FFCC"]]);
-    $crisp.push(["do", "chat:hide"]);
-    $crisp.push(["on", "chat:opened", function () {
-      var ov = document.getElementById('chat-overlay');
-      if (ov) ov.classList.add('active');
-    }]);
-    $crisp.push(["on", "chat:closed", function () {
-      var ov = document.getElementById('chat-overlay');
-      if (ov) ov.classList.remove('active');
-      $crisp.push(["do", "chat:hide"]);
-    }]);
-  </script>
-  <script async src="https://client.crisp.chat/l.js"></script>
 </body>
 </html>

@@ -19,24 +19,44 @@
       }, 300 + i * 200);
     });
 
-    /* Chat terminal → open Crisp live chat */
+    /* Contact panel open / close */
     var chatTerm = document.getElementById('chat-terminal');
+    var cpPanel  = document.getElementById('contact-panel');
+    var cpClose  = document.getElementById('cp-close');
+    var cpMsg    = document.getElementById('cp-msg');
+    var cpStatus = document.getElementById('cp-status');
     var overlay  = document.getElementById('chat-overlay');
 
-    if (chatTerm) {
-      chatTerm.addEventListener('click', function () {
-        if (window.$crisp) {
-          $crisp.push(['do', 'chat:show']);
-          $crisp.push(['do', 'chat:open']);
-        }
-      });
+    function openPanel() {
+      if (cpPanel) { cpPanel.classList.add('open'); cpPanel.setAttribute('aria-hidden', 'false'); }
+      if (overlay) overlay.classList.add('active');
+      setTimeout(function () { if (cpMsg) cpMsg.focus(); }, 240);
+    }
+    function closePanel() {
+      if (cpPanel) { cpPanel.classList.remove('open'); cpPanel.setAttribute('aria-hidden', 'true'); }
+      if (overlay) overlay.classList.remove('active');
     }
 
-    /* Overlay click → close Crisp */
-    if (overlay) {
-      overlay.addEventListener('click', function () {
-        if (window.$crisp) $crisp.push(['do', 'chat:close']);
-        overlay.classList.remove('active');
+    if (chatTerm) chatTerm.addEventListener('click', openPanel);
+    if (cpClose)  cpClose.addEventListener('click',  function (e) { e.stopPropagation(); closePanel(); });
+    if (overlay)  overlay.addEventListener('click',  closePanel);
+
+    /* Quick message → mailto */
+    if (cpMsg) {
+      cpMsg.addEventListener('keydown', function (e) {
+        if (e.key !== 'Enter') return;
+        var msg = cpMsg.value.trim();
+        if (!msg) return;
+        cpStatus.textContent = 'queuing...';
+        setTimeout(function () {
+          window.open(
+            'mailto:ash945512@gmail.com?subject=Portfolio%20Contact&body=' + encodeURIComponent(msg),
+            '_blank'
+          );
+          cpMsg.value = '';
+          cpStatus.textContent = '[ OK ] Message queued.';
+          setTimeout(function () { cpStatus.textContent = ''; }, 3000);
+        }, 400);
       });
     }
   });
