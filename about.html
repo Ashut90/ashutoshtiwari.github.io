@@ -14,80 +14,176 @@
   <canvas id="matrix-canvas"></canvas>
   <a href="index.html" class="back-home">home</a>
   <span class="page-indicator">about.html [2/6]</span>
-  <span class="page-label">// SUBSYSTEM: ABOUT — ENGINEER PROFILE</span>
+  <span class="page-label">// SUBSYSTEM: ABOUT &#8212; ENGINEER PROFILE</span>
 
   <div class="subpage-wrapper">
-    <div class="about-cols">
 
-      <!-- LEFT: Boot log -->
+    <!-- Quick boot header -->
+    <div class="about-prompt" id="about-prompt"></div>
+
+    <!-- Main layout -->
+    <div class="about-cols" id="about-cols">
+
+      <!-- ═══ LEFT COLUMN ═══ -->
       <div class="about-left">
-        <div class="boot-log" id="boot-log"></div>
 
-        <div class="stat-boxes" id="stat-boxes">
-          <div class="stat-box glass-card">
-            <span class="stat-num">4.5+</span>
-            <span class="stat-lbl">Years</span>
-          </div>
-          <div class="stat-box glass-card">
-            <span class="stat-num">3</span>
-            <span class="stat-lbl">Companies</span>
-          </div>
-          <div class="stat-box glass-card">
-            <span class="stat-num">2</span>
-            <span class="stat-lbl">Countries</span>
+        <!-- Who I Am -->
+        <div class="asec" id="asec-who">
+          <div class="asec-label">// WHO I AM</div>
+          <p class="about-bio">
+            Firmware developer with 4.5+ years building embedded Linux systems —
+            SoC bring-up, BSP development, and kernel driver work. Currently at
+            Elytone Electronics in Taiwan building the WiFi subsystem for an audio
+            DSP platform: BCM4373 USB WiFi bring-up, brcmfmac driver porting,
+            Yocto&nbsp;5.0 BSP, and AirPlay streaming on ADSP-SC598.
+          </p>
+          <p class="about-bio">
+            Before firmware I spent three years in test automation and SQA — Android
+            automotive, GPS systems — which gave me strong debugging instincts and
+            CI/CD habits that carry into every BSP task.
+          </p>
+          <div class="about-open">
+            <span class="open-dot"></span>
+            Open to BSP&nbsp;/&nbsp;Embedded Linux roles &mdash; Taiwan or remote
           </div>
         </div>
+
+        <!-- What I Build -->
+        <div class="asec" id="asec-build">
+          <div class="asec-label">// WHAT I BUILD</div>
+          <ul class="build-list">
+            <li>SoC bring-up &mdash; ADSP-SC598 / AMP140C4</li>
+            <li>Yocto&nbsp;5.0 / OpenEmbedded BSP &amp; recipe layers</li>
+            <li>Linux kernel driver porting &mdash; brcmfmac / USB WiFi</li>
+            <li>Bootloader design &middot; device tree &middot; JTAG/GDB</li>
+            <li>AirPlay &middot; SHARC-ALSA audio streaming stack</li>
+            <li>Python test automation &middot; CI/CD pipelines</li>
+          </ul>
+        </div>
+
+        <!-- Stat counters -->
+        <div class="stat-boxes" id="stat-boxes">
+          <div class="stat-box">
+            <span class="stat-num" data-target="4.5" data-decimal="1" data-suffix="+">0</span>
+            <span class="stat-lbl">Years exp.</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num" data-target="3">0</span>
+            <span class="stat-lbl">Companies</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num" data-target="2">0</span>
+            <span class="stat-lbl">Countries</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num" data-target="2">0</span>
+            <span class="stat-lbl">OSS projects</span>
+          </div>
+        </div>
+
       </div>
 
-      <!-- RIGHT: Architecture SVG diagram -->
+      <!-- ═══ RIGHT COLUMN ═══ -->
       <div class="about-right">
-        <svg class="arch-diagram" viewBox="0 0 300 420" fill="none" xmlns="http://www.w3.org/2000/svg">
 
-          <!-- Box 1: SoC -->
-          <g class="arch-box">
-            <rect x="60" y="10" width="180" height="52" rx="8" stroke="#00FFCC" stroke-width="1.5" fill="rgba(0,255,204,0.05)"/>
-            <text x="150" y="30" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#00FFCC">SoC</text>
-            <text x="150" y="48" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#00FF41" font-weight="bold">ADSP-SC598</text>
-          </g>
+        <!-- Career timeline -->
+        <div class="asec" id="asec-career">
+          <div class="asec-label">// CAREER LOG</div>
+          <div class="career-tl">
 
-          <!-- Line + label 1→2 -->
-          <line class="arch-line" x1="150" y1="62" x2="150" y2="98" stroke="#00FFCC" stroke-width="1" stroke-dasharray="4 3"/>
-          <text x="160" y="84" font-family="JetBrains Mono,monospace" font-size="9" fill="rgba(0,255,204,0.6)">JTAG/GDB</text>
-          <polygon points="145,95 150,105 155,95" fill="#00FFCC" opacity="0.7"/>
+            <div class="tl-entry">
+              <div class="tl-dot tl-dot--active"></div>
+              <div class="tl-body">
+                <div class="tl-period">Jun&nbsp;2024 &mdash; May&nbsp;2026</div>
+                <div class="tl-co">Elytone Electronics <span class="tl-loc">New Taipei, TW</span></div>
+                <div class="tl-role">Embedded Linux Engineer</div>
+                <div class="tl-chips">
+                  <span>BCM4373</span><span>Yocto&nbsp;5.0</span><span>ADSP-SC598</span>
+                  <span>brcmfmac</span><span>AirPlay</span><span>Dolby/Auro-3D</span>
+                </div>
+              </div>
+            </div>
 
-          <!-- Box 2: Linux -->
-          <g class="arch-box">
-            <rect x="40" y="108" width="220" height="52" rx="8" stroke="#00FFCC" stroke-width="1.5" fill="rgba(0,255,204,0.05)"/>
-            <text x="150" y="128" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#00FFCC">BSP</text>
-            <text x="150" y="146" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#00FF41" font-weight="bold">Linux Kernel / Yocto 5.0</text>
-          </g>
+            <div class="tl-entry">
+              <div class="tl-dot"></div>
+              <div class="tl-body">
+                <div class="tl-period">Sep&nbsp;2021 &mdash; May&nbsp;2023</div>
+                <div class="tl-co">Truetel Taiwan <span class="tl-loc">New Taipei, TW</span></div>
+                <div class="tl-role">Test Automation Engineer</div>
+                <div class="tl-chips">
+                  <span>Python</span><span>GPS API</span><span>CI/CD</span><span>ADB</span>
+                </div>
+              </div>
+            </div>
 
-          <!-- Line + label 2→3 -->
-          <line class="arch-line" x1="150" y1="160" x2="150" y2="196" stroke="#00FFCC" stroke-width="1" stroke-dasharray="4 3"/>
-          <text x="160" y="182" font-family="JetBrains Mono,monospace" font-size="9" fill="rgba(0,255,204,0.6)">USB 2.0</text>
-          <polygon points="145,193 150,203 155,193" fill="#00FFCC" opacity="0.7"/>
+            <div class="tl-entry">
+              <div class="tl-dot"></div>
+              <div class="tl-body">
+                <div class="tl-period">Nov&nbsp;2020 &mdash; Sep&nbsp;2021</div>
+                <div class="tl-co">CIeNET Technologies <span class="tl-loc">Beijing, CN</span></div>
+                <div class="tl-role">SQA Engineer</div>
+                <div class="tl-chips">
+                  <span>Android Automotive</span><span>ADB</span><span>Test Plans</span>
+                </div>
+              </div>
+            </div>
 
-          <!-- Box 3: BCM4373 -->
-          <g class="arch-box">
-            <rect x="55" y="206" width="190" height="52" rx="8" stroke="#00FFCC" stroke-width="1.5" fill="rgba(0,255,204,0.05)"/>
-            <text x="150" y="226" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#00FFCC">WiFi Module</text>
-            <text x="150" y="244" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#00FF41" font-weight="bold">BCM4373</text>
-          </g>
+            <div class="tl-entry tl-entry--last">
+              <div class="tl-dot"></div>
+              <div class="tl-body">
+                <div class="tl-period">Jul&nbsp;2018 &mdash; Nov&nbsp;2020</div>
+                <div class="tl-co">Tamkang University <span class="tl-loc">New Taipei, TW</span></div>
+                <div class="tl-role">Research Assistant &mdash; M.Sc. ECE</div>
+                <div class="tl-chips">
+                  <span>CNN</span><span>Python</span><span>C++</span><span>Signal Processing</span>
+                </div>
+              </div>
+            </div>
 
-          <!-- Line + label 3→4 -->
-          <line class="arch-line" x1="150" y1="258" x2="150" y2="294" stroke="#00FFCC" stroke-width="1" stroke-dasharray="4 3"/>
-          <text x="160" y="280" font-family="JetBrains Mono,monospace" font-size="9" fill="rgba(0,255,204,0.6)">brcmfmac</text>
-          <polygon points="145,291 150,301 155,291" fill="#00FFCC" opacity="0.7"/>
+          </div>
+        </div>
 
-          <!-- Box 4: AirPlay -->
-          <g class="arch-box">
-            <rect x="60" y="304" width="180" height="52" rx="8" stroke="#00FFCC" stroke-width="1.5" fill="rgba(0,255,204,0.05)"/>
-            <text x="150" y="324" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#00FFCC">Streaming</text>
-            <text x="150" y="342" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#00FF41" font-weight="bold">AirPlay / Stack</text>
-          </g>
+        <!-- Education -->
+        <div class="asec" id="asec-edu">
+          <div class="asec-label">// EDUCATION</div>
+          <div class="edu-list">
+            <div class="edu-entry">
+              <span class="edu-deg">M.Sc. Electronics &amp; Communication Engineering</span>
+              <span class="edu-school">Tamkang University &nbsp;&middot;&nbsp; New Taipei, Taiwan</span>
+              <span class="edu-year">2018 &mdash; 2020</span>
+            </div>
+            <div class="edu-entry">
+              <span class="edu-deg">B.Tech Electronics &amp; Communication Engineering</span>
+              <span class="edu-school">Vel Tech University &nbsp;&middot;&nbsp; Chennai, India</span>
+              <span class="edu-year">2014 &mdash; 2018</span>
+            </div>
+          </div>
+        </div>
 
-        </svg>
+        <!-- How I work -->
+        <div class="asec" id="asec-how">
+          <div class="asec-label">// HOW I WORK</div>
+          <div class="how-cards">
+            <div class="how-card">
+              <span class="how-num">01</span>
+              <span class="how-title">JTAG before printk</span>
+              <span class="how-desc">Hardware debugger first. Console floods obscure the real fault; breakpoints find it.</span>
+            </div>
+            <div class="how-card">
+              <span class="how-num">02</span>
+              <span class="how-title">Datasheet-driven</span>
+              <span class="how-desc">Hardware constraints set the rules. Every software decision traces back to the spec.</span>
+            </div>
+            <div class="how-card">
+              <span class="how-num">03</span>
+              <span class="how-title">CI on every layer</span>
+              <span class="how-desc">Yocto layer changes get tested before merge. Broken builds don't reach the team.</span>
+            </div>
+          </div>
+        </div>
+
       </div>
+
     </div>
   </div>
 
