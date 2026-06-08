@@ -43,9 +43,9 @@
       triggerAnimations(target);
     }
 
-    /* Highlight matching nav link */
+    /* Highlight matching nav link (nav-item may not exist when navbar is removed) */
     var link = document.querySelector('[data-nav="' + key + '"]');
-    if (link) link.closest('.nav-item').classList.add('active');
+    if (link) { var ni = link.closest('.nav-item'); if (ni) ni.classList.add('active'); }
 
     /* Matrix canvas: only run on home to save CPU */
     var canvas = document.getElementById('matrixCanvas');
