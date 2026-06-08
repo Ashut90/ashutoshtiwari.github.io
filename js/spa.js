@@ -16,6 +16,14 @@
     contact:  'contact-section'
   };
 
+  var SECTION_LABELS = {
+    about:    'About',
+    skills:   'Skills',
+    resume:   'Resume',
+    projects: 'Projects',
+    contact:  'Contact'
+  };
+
   var current = null;
 
   /* ── Activate a view ─────────────────────────────────── */
@@ -43,19 +51,33 @@
       triggerAnimations(target);
     }
 
-    /* Highlight matching nav link (nav-item may not exist when navbar is removed) */
+    /* Highlight matching nav link */
     var link = document.querySelector('[data-nav="' + key + '"]');
     if (link) { var ni = link.closest('.nav-item'); if (ni) ni.classList.add('active'); }
+
+    var isHome = (key === 'home');
 
     /* Matrix canvas + vignette: only visible on home */
     var canvas   = document.getElementById('matrixCanvas');
     var vignette = document.getElementById('matrix-vignette');
-    var isHome   = (key === 'home');
     if (canvas)   canvas.style.display   = isHome ? 'block' : 'none';
     if (vignette) vignette.style.display = isHome ? 'block' : 'none';
 
-    /* Rebuild connector lines when home is re-entered */
-    if (isHome && window.buildNavConnectors) setTimeout(window.buildNavConnectors, 120);
+    /* Floating home button: show on every section except home */
+    var homeBtn   = document.getElementById('home-nav-btn');
+    var sectionLbl = document.getElementById('section-label-bar');
+    if (homeBtn) homeBtn.style.display = isHome ? 'none' : 'flex';
+    if (sectionLbl) sectionLbl.textContent = SECTION_LABELS[key] || '';
+
+    /* Re-trigger card stagger when returning to home */
+    if (isHome) {
+      document.querySelectorAll('.nav-card').forEach(function (card) {
+        card.style.animation = 'none';
+        /* Force reflow so the browser registers the change */
+        void card.offsetWidth;
+        card.style.animation = '';
+      });
+    }
 
     /* Update URL hash without full navigation */
     if (updateHash !== false) {
@@ -83,7 +105,6 @@
       link.addEventListener('click', function (e) {
         e.preventDefault();
         showView(this.getAttribute('data-nav'));
-        /* Close Bootstrap mobile nav */
         var collapse = document.getElementById('ftco-nav');
         if (collapse && collapse.classList.contains('show')) {
           collapse.classList.remove('show');

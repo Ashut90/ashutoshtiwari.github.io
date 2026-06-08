@@ -537,20 +537,7 @@ body { height: 100%; overflow: hidden; overflow-x: hidden; }
   vertical-align: middle;
 }
 
-/* ── SVG connector lines overlay ── */
-#nav-connector-svg {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  pointer-events: none;
-  z-index: 1;
-  overflow: visible;
 }
-@keyframes connectorDraw {
-  to { stroke-dashoffset: 0; }
-}
-@keyframes connectorDotFade {
-  to { opacity: 1; }
 }
 
 /* ── IntersectionObserver reveal ── */
@@ -704,6 +691,38 @@ body { height: 100%; overflow: hidden; overflow-x: hidden; }
   transition: color 0.15s;
 }
 .wayfinding-link:hover { color: #00d4ff; text-decoration: none; }
+
+/* -- Floating back-to-home bar -- */
+#home-nav-btn {
+  position: fixed;
+  top: 14px;
+  left: 20px;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(6,8,14,0.82);
+  border: 1px solid rgba(0,212,255,0.22);
+  border-radius: 8px;
+  padding: 6px 14px;
+  backdrop-filter: blur(10px);
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+  font-size: 0.72rem;
+}
+.home-nav-link {
+  color: rgba(0,212,255,0.80);
+  text-decoration: none;
+  transition: color 0.18s;
+  letter-spacing: 0.04em;
+}
+.home-nav-link:hover { color: #00d4ff; text-decoration: none; }
+.home-nav-sep { color: rgba(255,255,255,0.18); font-size: 0.65rem; }
+#section-label-bar {
+  color: rgba(255,255,255,0.52);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
 </style>
 
 
@@ -711,6 +730,11 @@ body { height: 100%; overflow: hidden; overflow-x: hidden; }
   <body>
   <canvas id="matrixCanvas"></canvas>
   <div id="matrix-vignette"></div>
+  <div id="home-nav-btn" style="display:none" role="navigation" aria-label="Back to home">
+    <a href="#" data-nav="home" class="home-nav-link" aria-label="Home">&#9664; home</a>
+    <span class="home-nav-sep">/</span>
+    <span id="section-label-bar"></span>
+  </div>
 
 	  <section id="home-section" class="hero view-section active">
 		  <div class="home-slider  owl-carousel">
@@ -747,7 +771,6 @@ body { height: 100%; overflow: hidden; overflow-x: hidden; }
 		</div>
 		<!-- ── Navigation Flash Cards ── -->
 		<div class="nav-cards-section">
-			<svg id="nav-connector-svg" aria-hidden="true"></svg>
 			<div class="nav-cards-heading"><span>// explore portfolio</span></div>
 			<div class="nav-cards">
 
