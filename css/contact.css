@@ -17,9 +17,9 @@
 
 .tw-line { display: block; min-height: 1em; }
 .tw-cmd   { color: var(--cyan); }
-.tw-key   { color: var(--green); }
-.tw-val   { color: #fff; }
-.tw-ok    { color: var(--green); }
+.tw-key   { color: var(--yellow); }
+.tw-val   { color: rgba(255,255,255,0.9); }
+.tw-ok    { color: var(--yellow); font-weight: 700; }
 .tw-lk    { color: var(--cyan); }
 .tw-blank { display: block; height: 1em; }
 

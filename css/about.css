@@ -14,9 +14,9 @@
   transition: opacity 0.18s ease;
 }
 .boot-line.visible { opacity: 1; }
-.bt-cmd { color: var(--cyan); }
-.bt-ok  { color: var(--green); font-weight: 700; }
-.bt-val { color: rgba(255,255,255,0.85); }
+.bt-cmd   { color: var(--cyan); }
+.bt-ok    { color: var(--yellow); font-weight: 700; }
+.bt-val   { color: rgba(255,255,255,0.88); }
 .bt-muted { color: var(--muted); }
 
 /* ── Two-column layout ───────────────────────── */
@@ -53,7 +53,7 @@
 .asec-label {
   font-family: var(--font-mono);
   font-size: 10px;
-  color: rgba(0,255,204,0.5);
+  color: rgba(255,229,0,0.7);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 14px;
@@ -112,7 +112,7 @@
   content: '▸';
   position: absolute;
   left: 0;
-  color: var(--cyan);
+  color: var(--yellow);
   font-size: 10px;
   top: 1px;
 }
@@ -230,8 +230,8 @@
 .tl-chips span {
   font-family: var(--font-mono);
   font-size: 10px;
-  color: var(--green);
-  border: 1px solid rgba(0,255,65,0.25);
+  color: rgba(255,255,255,0.72);
+  border: 1px solid rgba(255,229,0,0.22);
   border-radius: 3px;
   padding: 2px 6px;
 }
