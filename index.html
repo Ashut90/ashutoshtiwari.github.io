@@ -136,10 +136,21 @@ Google Drive</p>
   </main>
 
   <!-- Chat widget (bottom right) -->
-  <div class="chat-widget" id="chat-widget" role="button" aria-label="Contact me">
-    <div class="chat-bubble">I have a question.</div>
-    <div class="chat-bubble">Tell me more</div>
-    <div class="chat-icon">&#x1F916;</div>
+  <div class="chat-widget" id="chat-widget">
+    <div class="chat-panel" id="chat-panel">
+      <div class="chat-panel-header">
+        <span>Say hello &#x1F44B;</span>
+        <button class="chat-close" id="chat-close" aria-label="Close">&#x2715;</button>
+      </div>
+      <div class="chat-panel-body">
+        <p>I&#x27;m Ashutosh — firmware dev based in Taiwan.<br>Open to BSP / Embedded Linux roles.</p>
+        <a href="contact.html" class="chat-cta">Get in touch &#x2192;</a>
+      </div>
+    </div>
+    <div class="chat-icon" id="chat-toggle" role="button" aria-label="Open chat" aria-expanded="false">
+      <span class="chat-badge"></span>
+      &#x1F916;
+    </div>
   </div>
 
   <!-- Sparkle star -->

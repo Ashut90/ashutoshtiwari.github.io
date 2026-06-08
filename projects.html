@@ -21,91 +21,7 @@
 
     <div class="project-list">
 
-      <!-- Project 1 -->
-      <div class="project-card">
-        <div class="project-header">
-          <span class="proj-hash">a3f9c12</span>
-          <span class="proj-name">BCM4373 WiFi Driver</span>
-          <span class="proj-date">2025-03</span>
-          <div class="proj-tags"><span class="proj-tag">[BSP]</span><span class="proj-tag">[Kernel]</span></div>
-          <span class="proj-toggle">+</span>
-        </div>
-        <div class="project-body">
-          <div class="project-inner">
-            <p class="proj-desc">
-              Production USB 2.0 WiFi driver for ADSP-SC598/AMP140C4 on Yocto.
-              Resolved TRX firmware format, USB ID patches, CLM blob loading.
-              Interrupt handling, DMA, memory management from scratch.
-            </p>
-            <div class="proj-metrics">
-              <span class="metric-tag">Language: C</span>
-              <span class="metric-tag">Target: ADSP-SC598</span>
-              <span class="metric-tag">Layer: Kernel Driver</span>
-            </div>
-            <div class="proj-diagram">
-              <svg viewBox="0 0 420 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:420px;">
-                <rect x="2" y="30" width="90" height="36" rx="5" stroke="#00FFCC" stroke-width="1.2" fill="rgba(0,255,204,0.05)"/>
-                <text x="47" y="53" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#00FF41">Yocto 5.0</text>
-                <line x1="92" y1="48" x2="122" y2="48" stroke="#00FFCC" stroke-width="1"/>
-                <polygon points="120,44 130,48 120,52" fill="#00FFCC"/>
-                <rect x="130" y="30" width="100" height="36" rx="5" stroke="#00FFCC" stroke-width="1.2" fill="rgba(0,255,204,0.05)"/>
-                <text x="180" y="53" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#00FF41">USB 2.0 Bus</text>
-                <line x1="230" y1="48" x2="258" y2="48" stroke="#00FFCC" stroke-width="1"/>
-                <polygon points="256,44 266,48 256,52" fill="#00FFCC"/>
-                <rect x="266" y="30" width="80" height="36" rx="5" stroke="#00FFCC" stroke-width="1.2" fill="rgba(0,255,204,0.05)"/>
-                <text x="306" y="53" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#00FF41">BCM4373</text>
-                <line x1="180" y1="66" x2="180" y2="82" stroke="#00FFCC" stroke-width="1" stroke-dasharray="3 2"/>
-                <rect x="110" y="82" width="140" height="16" rx="4" stroke="rgba(0,255,65,0.5)" stroke-width="1" fill="rgba(0,255,65,0.04)"/>
-                <text x="180" y="93" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#00FFCC">brcmfmac driver &#8594; AirPlay</text>
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 2 -->
-      <div class="project-card">
-        <div class="project-header">
-          <span class="proj-hash">b7d2e45</span>
-          <span class="proj-name">Secure Bootloader ARM</span>
-          <span class="proj-date">2025-01</span>
-          <div class="proj-tags"><span class="proj-tag">[Firmware]</span></div>
-          <span class="proj-toggle">+</span>
-        </div>
-        <div class="project-body">
-          <div class="project-inner">
-            <p class="proj-desc">
-              Fail-safe bootloader, partition rollback for ARM Cortex-M4.
-              Shared memory comms, linker script for WIZnet W5500-EVB-Pico.
-            </p>
-            <div class="proj-metrics">
-              <span class="metric-tag">Language: C</span>
-              <span class="metric-tag">Target: ARM Cortex-M4/RP2040</span>
-              <span class="metric-tag">Layer: Bare-metal</span>
-            </div>
-            <div class="proj-diagram">
-              <svg viewBox="0 0 400 90" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:400px;">
-                <rect x="2" y="10" width="80" height="32" rx="5" stroke="#00FFCC" stroke-width="1.2" fill="rgba(0,255,204,0.05)"/>
-                <text x="42" y="30" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#00FF41">Boot ROM</text>
-                <line x1="82" y1="26" x2="108" y2="26" stroke="#00FFCC" stroke-width="1"/>
-                <polygon points="106,22 116,26 106,30" fill="#00FFCC"/>
-                <rect x="116" y="10" width="90" height="32" rx="5" stroke="#00FFCC" stroke-width="1.2" fill="rgba(0,255,204,0.05)"/>
-                <text x="161" y="30" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#00FF41">Bootloader</text>
-                <line x1="206" y1="26" x2="230" y2="26" stroke="#00FFCC" stroke-width="1"/>
-                <polygon points="228,22 238,26 228,30" fill="#00FFCC"/>
-                <rect x="238" y="10" width="90" height="32" rx="5" stroke="#00FFCC" stroke-width="1.2" fill="rgba(0,255,204,0.05)"/>
-                <text x="283" y="30" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#00FF41">Partition A</text>
-                <line x1="161" y1="42" x2="161" y2="56" stroke="#00FFCC" stroke-width="1" stroke-dasharray="3 2"/>
-                <text x="172" y="52" font-family="JetBrains Mono,monospace" font-size="9" fill="rgba(0,255,204,0.6)">rollback</text>
-                <rect x="110" y="56" width="100" height="28" rx="5" stroke="#00FFCC" stroke-width="1.2" fill="rgba(0,255,204,0.05)"/>
-                <text x="160" y="74" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#00FF41">Partition B</text>
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 3 -->
+      <!-- Project 1: PDF Tutor -->
       <div class="project-card">
         <div class="project-header">
           <span class="proj-hash">c1a8f33</span>
@@ -117,20 +33,46 @@
         <div class="project-body">
           <div class="project-inner">
             <p class="proj-desc">
-              Offline AI tool — PDF to interactive study. VARK modes, Anki export, mindmaps.
-              Ollama / Gemini / Groq backends. Fully local-first.
+              Desktop app that turns any technical PDF into interactive study sessions.
+              Picks a chapter from the table of contents and explains it via VARK learning
+              modes — Visual (mindmaps / flowcharts), Auditory (TTS read-aloud), Read/Write
+              (structured notes + writing prompts), Kinesthetic (runnable terminal commands).
+              Exports Anki flashcards, Markdown notes, and interactive mindmap HTML files.
+              Runs fully offline via Ollama; also supports Gemini, Groq, and OpenRouter.
             </p>
             <div class="proj-metrics">
-              <span class="metric-tag">Language: Python</span>
-              <span class="metric-tag">Backend: Ollama/Groq</span>
-              <span class="metric-tag">Published: GitHub</span>
+              <span class="metric-tag">Language: Python / Tkinter</span>
+              <span class="metric-tag">AI: Ollama · Gemini · Groq · OpenRouter</span>
+              <span class="metric-tag">License: MIT</span>
+            </div>
+            <div class="proj-diagram">
+              <svg viewBox="0 0 500 90" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:500px;">
+                <rect x="2" y="28" width="64" height="32" rx="5" stroke="#00FFCC" stroke-width="1.2" fill="rgba(0,255,204,0.05)"/>
+                <text x="34" y="48" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#00FF41">PDF / TOC</text>
+                <line x1="66" y1="44" x2="90" y2="44" stroke="#00FFCC" stroke-width="1"/>
+                <polygon points="88,40 98,44 88,48" fill="#00FFCC"/>
+                <rect x="98" y="28" width="76" height="32" rx="5" stroke="#00FFCC" stroke-width="1.2" fill="rgba(0,255,204,0.05)"/>
+                <text x="136" y="48" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#00FF41">modes.py</text>
+                <line x1="174" y1="44" x2="198" y2="44" stroke="#00FFCC" stroke-width="1"/>
+                <polygon points="196,40 206,44 196,48" fill="#00FFCC"/>
+                <rect x="206" y="28" width="80" height="32" rx="5" stroke="#00FFCC" stroke-width="1.2" fill="rgba(0,255,204,0.05)"/>
+                <text x="246" y="48" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#00FF41">AI client</text>
+                <line x1="286" y1="44" x2="310" y2="44" stroke="#00FFCC" stroke-width="1"/>
+                <polygon points="308,40 318,44 308,48" fill="#00FFCC"/>
+                <rect x="318" y="10" width="80" height="26" rx="4" stroke="rgba(0,255,65,0.6)" stroke-width="1" fill="rgba(0,255,65,0.04)"/>
+                <text x="358" y="27" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="8" fill="#00FFCC">Visual / Mindmap</text>
+                <rect x="318" y="42" width="80" height="26" rx="4" stroke="rgba(0,255,65,0.6)" stroke-width="1" fill="rgba(0,255,65,0.04)"/>
+                <text x="358" y="59" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="8" fill="#00FFCC">Audio / TTS</text>
+                <line x1="318" y1="23" x2="308" y2="40" stroke="rgba(0,255,204,0.35)" stroke-width="1" stroke-dasharray="3 2"/>
+                <line x1="318" y1="55" x2="308" y2="48" stroke="rgba(0,255,204,0.35)" stroke-width="1" stroke-dasharray="3 2"/>
+              </svg>
             </div>
             <a class="proj-link" href="https://github.com/Ashut90/pdf-tutor" target="_blank" rel="noopener">&#x2197; github.com/Ashut90/pdf-tutor</a>
           </div>
         </div>
       </div>
 
-      <!-- Project 4 -->
+      <!-- Project 2: YouTube Dubber -->
       <div class="project-card">
         <div class="project-header">
           <span class="proj-hash">d4c7b21</span>
@@ -142,39 +84,95 @@
         <div class="project-body">
           <div class="project-inner">
             <p class="proj-desc">
-              Real-time YouTube dubbing. Groq Whisper &#8594; LLaMA 3.3 70B &#8594; edge-TTS.
-              Hindi + 19 languages. Published to PyPI.
+              Dubs any YouTube video into 21 languages with natural-sounding neural voice —
+              not a robotic narrator. Electron frontend + Python backend: yt-dlp fetches
+              captions, Groq Whisper transcribes, LLaMA 3.1/3.3 translates with
+              Hinglish-style casual phrasing for Indian languages, edge-TTS synthesizes,
+              and mpv plays the result in sync. Disk-cached per segment so re-runs are
+              instant. Also ships as a pip package and supports a Live Dub mode that
+              translates any system audio in real time (~3–5 s lag).
             </p>
             <div class="proj-metrics">
-              <span class="metric-tag">Language: Python</span>
-              <span class="metric-tag">Pipeline: Whisper&#8594;LLaMA&#8594;TTS</span>
-              <span class="metric-tag">PyPI: published</span>
+              <span class="metric-tag">Stack: Python · Electron · mpv</span>
+              <span class="metric-tag">Pipeline: Whisper &#8594; LLaMA &#8594; edge-TTS</span>
+              <span class="metric-tag">Languages: 21 · License: GPL-3.0</span>
+            </div>
+            <div class="proj-diagram">
+              <svg viewBox="0 0 520 72" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:520px;">
+                <rect x="2" y="20" width="68" height="30" rx="5" stroke="#00FFCC" stroke-width="1.2" fill="rgba(0,255,204,0.05)"/>
+                <text x="36" y="39" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#00FF41">YT URL</text>
+                <line x1="70" y1="35" x2="90" y2="35" stroke="#00FFCC" stroke-width="1"/>
+                <polygon points="88,31 98,35 88,39" fill="#00FFCC"/>
+                <rect x="98" y="20" width="64" height="30" rx="5" stroke="#00FFCC" stroke-width="1.2" fill="rgba(0,255,204,0.05)"/>
+                <text x="130" y="39" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#00FF41">yt-dlp</text>
+                <line x1="162" y1="35" x2="180" y2="35" stroke="#00FFCC" stroke-width="1"/>
+                <polygon points="178,31 188,35 178,39" fill="#00FFCC"/>
+                <rect x="188" y="20" width="72" height="30" rx="5" stroke="#00FFCC" stroke-width="1.2" fill="rgba(0,255,204,0.05)"/>
+                <text x="224" y="39" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#00FF41">Whisper</text>
+                <line x1="260" y1="35" x2="278" y2="35" stroke="#00FFCC" stroke-width="1"/>
+                <polygon points="276,31 286,35 276,39" fill="#00FFCC"/>
+                <rect x="286" y="20" width="68" height="30" rx="5" stroke="#00FFCC" stroke-width="1.2" fill="rgba(0,255,204,0.05)"/>
+                <text x="320" y="39" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#00FF41">LLaMA</text>
+                <line x1="354" y1="35" x2="372" y2="35" stroke="#00FFCC" stroke-width="1"/>
+                <polygon points="370,31 380,35 370,39" fill="#00FFCC"/>
+                <rect x="380" y="20" width="68" height="30" rx="5" stroke="#00FFCC" stroke-width="1.2" fill="rgba(0,255,204,0.05)"/>
+                <text x="414" y="39" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#00FF41">edge-TTS</text>
+                <line x1="448" y1="35" x2="464" y2="35" stroke="#00FFCC" stroke-width="1"/>
+                <polygon points="462,31 472,35 462,39" fill="#00FFCC"/>
+                <rect x="472" y="20" width="44" height="30" rx="5" stroke="rgba(0,255,65,0.6)" stroke-width="1" fill="rgba(0,255,65,0.04)"/>
+                <text x="494" y="39" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#00FFCC">mpv</text>
+              </svg>
             </div>
             <a class="proj-link" href="https://github.com/Ashut90/youtube-dubber" target="_blank" rel="noopener">&#x2197; github.com/Ashut90/youtube-dubber</a>
           </div>
         </div>
       </div>
 
-      <!-- Project 5 -->
+      <!-- Project 3: MongoDB Connector Package -->
       <div class="project-card">
         <div class="project-header">
-          <span class="proj-hash">e9f3d08</span>
-          <span class="proj-name">ElytestTMS</span>
+          <span class="proj-hash">f2a1d09</span>
+          <span class="proj-name">MongoDB Connector Pkg</span>
           <span class="proj-date">2024-06</span>
-          <div class="proj-tags"><span class="proj-tag">[Flask]</span><span class="proj-tag">[Internal]</span></div>
+          <div class="proj-tags"><span class="proj-tag">[PyPI]</span><span class="proj-tag">[MongoDB]</span></div>
           <span class="proj-toggle">+</span>
         </div>
         <div class="project-body">
           <div class="project-inner">
             <p class="proj-desc">
-              Test management system built from scratch. Flask + SQLite.
-              Deployed on Oracle Cloud Free Tier. Used at Elytone internally.
+              Pip-installable Python package (<code class="proj-inline-code">mymongoo-automate</code>) that wraps
+              MongoDB Atlas CRUD into a single, CI/CD-friendly interface.
+              One <code class="proj-inline-code">mongo_operation</code> object covers insert, find, update, and
+              delete — no boilerplate connection management. Packaged with
+              <code class="proj-inline-code">pyproject.toml</code>, tested across Python versions via tox,
+              and linted with flake8 + pylint.
             </p>
             <div class="proj-metrics">
-              <span class="metric-tag">Language: Flask/Python</span>
-              <span class="metric-tag">Deploy: Oracle Cloud</span>
-              <span class="metric-tag">Type: Internal</span>
+              <span class="metric-tag">Language: Python</span>
+              <span class="metric-tag">DB: MongoDB Atlas</span>
+              <span class="metric-tag">Install: pip install mymongoo-automate</span>
             </div>
+            <div class="proj-diagram">
+              <svg viewBox="0 0 460 72" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:460px;">
+                <rect x="2" y="20" width="80" height="30" rx="5" stroke="#00FFCC" stroke-width="1.2" fill="rgba(0,255,204,0.05)"/>
+                <text x="42" y="39" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#00FF41">CI/CD env</text>
+                <line x1="82" y1="35" x2="104" y2="35" stroke="#00FFCC" stroke-width="1"/>
+                <polygon points="102,31 112,35 102,39" fill="#00FFCC"/>
+                <rect x="112" y="20" width="110" height="30" rx="5" stroke="#00FFCC" stroke-width="1.2" fill="rgba(0,255,204,0.05)"/>
+                <text x="167" y="39" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#00FF41">mongo_operation()</text>
+                <line x1="222" y1="35" x2="244" y2="35" stroke="#00FFCC" stroke-width="1"/>
+                <polygon points="242,31 252,35 242,39" fill="#00FFCC"/>
+                <rect x="252" y="20" width="96" height="30" rx="5" stroke="#00FFCC" stroke-width="1.2" fill="rgba(0,255,204,0.05)"/>
+                <text x="300" y="39" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#00FF41">MongoDB Atlas</text>
+                <line x1="348" y1="35" x2="368" y2="35" stroke="#00FFCC" stroke-width="1"/>
+                <polygon points="366,31 376,35 366,39" fill="#00FFCC"/>
+                <rect x="376" y="10" width="80" height="22" rx="4" stroke="rgba(0,255,65,0.5)" stroke-width="1" fill="rgba(0,255,65,0.04)"/>
+                <text x="416" y="25" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="8" fill="#00FFCC">insert / find</text>
+                <rect x="376" y="38" width="80" height="22" rx="4" stroke="rgba(0,255,65,0.5)" stroke-width="1" fill="rgba(0,255,65,0.04)"/>
+                <text x="416" y="53" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="8" fill="#00FFCC">update / delete</text>
+              </svg>
+            </div>
+            <a class="proj-link" href="https://github.com/Ashut90/mongodb_connectorpkg" target="_blank" rel="noopener">&#x2197; github.com/Ashut90/mongodb_connectorpkg</a>
           </div>
         </div>
       </div>

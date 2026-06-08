@@ -52,10 +52,25 @@
     }
 
     resize();
+
+    var resizeTimer;
     window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
       cancelAnimationFrame(animId);
-      resize();
+      resizeTimer = setTimeout(function () {
+        resize();
+        draw();
+      }, 150);
     });
+
+    /* Restart when tab becomes visible again after minimize */
+    document.addEventListener('visibilitychange', function () {
+      if (!document.hidden) {
+        cancelAnimationFrame(animId);
+        draw();
+      }
+    });
+
     draw();
   };
 

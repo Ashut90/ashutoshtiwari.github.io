@@ -19,15 +19,39 @@
       }, 300 + i * 200);
     });
 
-    /* Chat widget → contact page */
-    var widget = document.getElementById('chat-widget');
-    if (widget) {
-      widget.addEventListener('click', function () {
-        document.body.style.transition = 'opacity 0.3s ease';
-        document.body.style.opacity = '0';
-        setTimeout(function () { location.href = 'contact.html'; }, 310);
+    /* Chat widget toggle */
+    var toggle  = document.getElementById('chat-toggle');
+    var panel   = document.getElementById('chat-panel');
+    var closeBtn = document.getElementById('chat-close');
+
+    function openPanel() {
+      if (!panel) return;
+      panel.classList.add('open');
+      if (toggle) toggle.setAttribute('aria-expanded', 'true');
+    }
+    function closePanel() {
+      if (!panel) return;
+      panel.classList.remove('open');
+      if (toggle) toggle.setAttribute('aria-expanded', 'false');
+    }
+
+    if (toggle) {
+      toggle.addEventListener('click', function () {
+        panel && panel.classList.contains('open') ? closePanel() : openPanel();
       });
     }
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        closePanel();
+      });
+    }
+
+    /* Close panel on outside click */
+    document.addEventListener('click', function (e) {
+      var widget = document.getElementById('chat-widget');
+      if (widget && !widget.contains(e.target)) closePanel();
+    });
   });
 
 }());
