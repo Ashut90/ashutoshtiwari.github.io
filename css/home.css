@@ -142,7 +142,8 @@
 .open-to {
   font-family: var(--font-mono);
   font-size: 11px;
-  color: rgba(255,255,255,0.88);
+  color: var(--red);
+  text-shadow: 0 0 8px rgba(255,49,49,0.55);
   margin-top: 14px;
   line-height: 1.6;
 }
