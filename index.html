@@ -313,9 +313,6 @@ body { height: 100%; overflow: hidden; overflow-x: hidden; }
 
 /* Home: one-viewport layout — hero + cards, no scroll */
 #home-section.view-section              { overflow: hidden !important; background: transparent !important; }
-#home-section .home-slider              { flex: 0 0 46vh; overflow: hidden; }
-#home-section .slider-item              { height: 46vh !important; min-height: unset !important; background: transparent !important; }
-#home-section .js-fullheight            { height: 46vh !important; }
 
 /* Flex column wrapper fills full home section */
 .home-flex-wrap {
@@ -324,12 +321,34 @@ body { height: 100%; overflow: hidden; overflow-x: hidden; }
   flex-direction: column;
 }
 
-/* Compact hero typography so it fits 46vh */
-#home-section .slider-text              { align-items: center !important; }
-#home-section .text .subheading         { font-size: 0.68rem !important; letter-spacing: 3px; }
-#home-section .text h1                  { font-size: clamp(1.5rem, 3.2vw, 2.6rem) !important; margin: 3px 0 3px !important; }
-#home-section .text h2                  { font-size: clamp(0.75rem, 1.4vw, 1.05rem) !important; margin-bottom: 5px !important; }
-#home-section .text                     { padding-top: 0 !important; padding-bottom: 0 !important; }
+/* ── Hero area: clean flex row, bypasses Bootstrap slider CSS entirely ── */
+.hero-area {
+  flex: 0 0 46vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6% 0 9%;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+.hero-text {
+  flex: 1;
+  min-width: 0;
+  padding-right: 4%;
+}
+.hero-icon {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Hero typography — set explicitly since old .slider-text selectors no longer apply */
+.hero-area .subheading                  { font-size: 0.68rem; letter-spacing: 3px; color: #00d4ff; text-transform: uppercase; display: block; margin-bottom: 2px; }
+.hero-area h1                           { font-size: clamp(1.5rem, 3.2vw, 2.6rem); color: #fff; font-weight: 800; line-height: 1.2; margin: 4px 0 4px; }
+.hero-area h1 span                      { color: #00d4ff; font-weight: 800; }
+.hero-area h2                           { font-size: clamp(0.75rem, 1.4vw, 1.05rem); color: rgba(255,255,255,0.75); font-weight: 400; margin-bottom: 6px; }
 
 /* Cards section: fill remaining height */
 #home-section .nav-cards-section {
@@ -357,9 +376,8 @@ body { height: 100%; overflow: hidden; overflow-x: hidden; }
 @media (max-width: 767.98px) {
   #home-section.view-section            { overflow-y: auto !important; }
   .home-flex-wrap                       { height: auto; min-height: 100%; }
-  #home-section .home-slider            { flex: 0 0 auto; }
-  #home-section .slider-item            { height: auto !important; min-height: 58vh; }
-  #home-section .js-fullheight          { height: 58vh !important; }
+  .hero-area                            { flex: 0 0 auto; min-height: 55vh; padding: 8% 6% 4%; flex-direction: column; align-items: flex-start; justify-content: center; }
+  .hero-icon                            { display: none; }
   #home-section .nav-cards              { grid-template-rows: auto; }
   #home-section .nav-card               { padding: 14px 16px 26px; }
 }
@@ -774,7 +792,7 @@ body { height: 100%; overflow: hidden; overflow-x: hidden; }
   from { opacity: 0; transform: translateY(-10px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-#home-section.home-enter .one-forth     { animation: heroTextIn 0.65s cubic-bezier(0.22,1,0.36,1) both; }
+#home-section.home-enter .hero-text     { animation: heroTextIn 0.65s cubic-bezier(0.22,1,0.36,1) both; }
 #home-section.home-enter #hero-anim-wrap{ animation: heroIconIn 0.7s cubic-bezier(0.22,1,0.36,1) 0.18s both; }
 #home-section.home-enter .nav-cards-heading { animation: headingIn 0.5s cubic-bezier(0.22,1,0.36,1) 0.12s both; }
 </style>
@@ -792,38 +810,29 @@ body { height: 100%; overflow: hidden; overflow-x: hidden; }
 
 	  <section id="home-section" class="hero view-section active">
   <div class="home-flex-wrap">
-		  <div class="home-slider  owl-carousel">
-	       <div class="slider-item ">
-	      	<div class="overlay"></div>
-	         <div class="container">
-	          <div class="row d-md-flex no-gutters slider-text align-items-end justify-content-end" data-scrollax-parent="true">
-	          	<div class="one-third js-fullheight order-md-last" id="hero-anim-wrap">
-	          	  <div class="monitor-icon-wrap" id="hero-monitor">
-	          	    <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-	          	      <rect x="4" y="7" width="64" height="42" rx="5" stroke="#00ffcc" stroke-width="2"/>
-	          	      <path d="M24 49 L20 60 M48 49 L52 60" stroke="#00ffcc" stroke-width="2" stroke-linecap="round"/>
-	          	      <line x1="16" y1="60" x2="56" y2="60" stroke="#00ffcc" stroke-width="2" stroke-linecap="round"/>
-	          	      <rect x="12" y="15" width="48" height="26" rx="2" fill="none" stroke="#00ffcc" stroke-width="1" stroke-dasharray="3 2" opacity="0.55"/>
-	          	      <circle cx="36" cy="28" r="7" fill="rgba(0,255,204,0.12)" stroke="#00ffcc" stroke-width="1.5"/>
-	          	      <circle cx="36" cy="28" r="2.5" fill="#00ffcc"/>
-	          	    </svg>
-	          	  </div>
-	          	</div>
-		          <div class="one-forth d-flex  align-items-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-		          	<div class="text">
-		          		<span class="subheading">Hello!</span>
-			            <h1 class="mb-4 mt-3">I'm <span>Ashutosh Tiwari</span></h1>
-
-			            <h2>Embedded Software Engineer &amp; Firmware Developer</h2>
-						<p style="font-family:'JetBrains Mono','Courier New',Courier,monospace;font-size:13px;color:#a0c4ff;background:rgba(160,196,255,0.05);border:1px solid rgba(160,196,255,0.15);border-radius:6px;padding:10px 14px;margin:14px 0 10px;line-height:1.9;letter-spacing:0.08em;">BCM4373 USB WiFi bring-up &nbsp;·&nbsp; ADSP-SC598 Yocto 5.0 BSP<br>brcmfmac driver porting &nbsp;·&nbsp; SHARC-ALSA &nbsp;·&nbsp; AirPlay stream debugging</p>
-						<p style="color:#00d4ff;font-size:0.82rem;margin-bottom:22px;font-weight:600;">&#9656; Open to BSP / Embedded Linux roles in Taiwan or remote</p>
-			            <p><a href="https://github.com/Ashut90" class="btn btn-primary py-3 px-4">Github</a>
-		            </div>
-		          </div>
-	        	</div>
-	        </div>
+	  <!-- Hero: clean flex layout — avoids Bootstrap slider CSS conflicts -->
+	  <div class="hero-area">
+	    <div class="hero-text">
+	      <span class="subheading">Hello!</span>
+	      <h1 class="mb-2 mt-2">I'm <span>Ashutosh Tiwari</span></h1>
+	      <h2>Embedded Software Engineer &amp; Firmware Developer</h2>
+	      <p style="font-family:'JetBrains Mono','Courier New',Courier,monospace;font-size:12px;color:rgba(0,255,65,0.85);background:rgba(0,255,65,0.04);border:1px solid rgba(0,255,65,0.18);border-radius:6px;padding:8px 12px;margin:10px 0 8px;line-height:1.9;letter-spacing:0.06em;">BCM4373 USB WiFi bring-up &nbsp;·&nbsp; ADSP-SC598 Yocto 5.0 BSP<br>brcmfmac driver porting &nbsp;·&nbsp; SHARC-ALSA &nbsp;·&nbsp; AirPlay stream debugging</p>
+	      <p style="color:#00d4ff;font-size:0.78rem;margin-bottom:14px;font-weight:600;">&#9656; Open to BSP / Embedded Linux roles in Taiwan or remote</p>
+	      <p><a href="https://github.com/Ashut90" class="btn btn-primary py-3 px-4" target="_blank" rel="noopener">Github</a></p>
+	    </div>
+	    <div class="hero-icon" id="hero-anim-wrap">
+	      <div class="monitor-icon-wrap" id="hero-monitor">
+	        <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+	          <rect x="4" y="7" width="64" height="42" rx="5" stroke="#00ffcc" stroke-width="2"/>
+	          <path d="M24 49 L20 60 M48 49 L52 60" stroke="#00ffcc" stroke-width="2" stroke-linecap="round"/>
+	          <line x1="16" y1="60" x2="56" y2="60" stroke="#00ffcc" stroke-width="2" stroke-linecap="round"/>
+	          <rect x="12" y="15" width="48" height="26" rx="2" fill="none" stroke="#00ffcc" stroke-width="1" stroke-dasharray="3 2" opacity="0.55"/>
+	          <circle cx="36" cy="28" r="7" fill="rgba(0,255,204,0.12)" stroke="#00ffcc" stroke-width="1.5"/>
+	          <circle cx="36" cy="28" r="2.5" fill="#00ffcc"/>
+	        </svg>
 	      </div>
-		</div>
+	    </div>
+	  </div>
 		<!-- ── Navigation Flash Cards ── -->
 		<div class="nav-cards-section">
 			<div class="nav-cards-heading"><span>// explore portfolio</span></div>
