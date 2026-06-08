@@ -1,0 +1,93 @@
+/* contact.css */
+.contact-wrap {
+  max-width: 680px;
+  margin: 0 auto;
+  padding-top: 120px;
+  position: relative;
+  z-index: 10;
+  padding-bottom: 80px;
+}
+
+.typewriter-block {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  line-height: 2.2;
+  margin-bottom: 28px;
+}
+
+.tw-line { display: block; min-height: 1em; }
+.tw-cmd   { color: var(--cyan); }
+.tw-key   { color: var(--green); }
+.tw-val   { color: #fff; }
+.tw-ok    { color: var(--green); }
+.tw-lk    { color: var(--cyan); }
+.tw-blank { display: block; height: 1em; }
+
+/* Terminal input row */
+.input-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid rgba(0,255,204,0.35);
+  padding-bottom: 6px;
+  margin-top: 20px;
+}
+.prompt {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--cyan);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+#msg-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  outline: none;
+  caret-color: var(--cyan);
+}
+#msg-input::placeholder { color: rgba(255,255,255,0.3); }
+
+.msg-status {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  margin-top: 10px;
+  height: 20px;
+  transition: opacity 0.3s;
+}
+
+/* Social links */
+.social-links {
+  display: flex;
+  gap: 16px;
+  margin-top: 28px;
+}
+.social-btn {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 12px;
+  color: var(--cyan);
+  text-decoration: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.social-btn:hover {
+  border-color: var(--cyan);
+  box-shadow: 0 0 12px rgba(0,255,204,0.3);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .contact-wrap { padding-top: 90px; padding-left: 20px; padding-right: 20px; }
+  .typewriter-block { font-size: 12px; }
+  #msg-input { font-size: 12px; }
+  .prompt { font-size: 12px; }
+}

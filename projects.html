@@ -1,317 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projects — Ashutosh Tiwari</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-  <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-  <link rel="stylesheet" href="css/animate.css">
-  <link rel="stylesheet" href="css/magnific-popup.css">
-  <link rel="stylesheet" href="css/aos.css">
-  <link rel="stylesheet" href="css/ionicons.min.css">
-  <link rel="stylesheet" href="css/flaticon.css">
-  <link rel="stylesheet" href="css/icomoon.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <style>
-    .page-hero {
-      background: linear-gradient(135deg, #0a0a0a 0%, #0d1f33 100%);
-      padding: 120px 0 60px;
-      text-align: center;
-    }
-    .page-hero h1 { font-size: 3rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
-    .page-hero p  { color: rgba(255,255,255,0.6); font-size: 1.1rem; }
-    .page-hero .accent { color: #00d4ff; }
-
-    .project-grid { padding: 60px 0; }
-
-    .proj-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(0,212,255,0.12);
-      border-radius: 14px;
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-    .proj-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 50px rgba(0,212,255,0.1);
-      border-color: rgba(0,212,255,0.4);
-    }
-    .proj-card-banner {
-      height: 180px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3.5rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .proj-card-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
-    .proj-card-body h3 { font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 10px; }
-    .proj-card-body h3 a { color: inherit; text-decoration: none; }
-    .proj-card-body h3 a:hover { color: #00d4ff; }
-    .proj-card-body p  { font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.7; flex: 1; }
-
-    .tech-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
-    .tech-tag {
-      font-size: 11px; padding: 3px 9px; border-radius: 4px;
-      background: rgba(0,212,255,0.1); color: #00d4ff;
-      border: 1px solid rgba(0,212,255,0.25);
-    }
-    .tech-tag.violet {
-      background: rgba(180,100,255,0.1); color: #c07aff;
-      border-color: rgba(180,100,255,0.25);
-    }
-    .tech-tag.green {
-      background: rgba(0,255,120,0.1); color: #00e676;
-      border-color: rgba(0,255,120,0.25);
-    }
-
-    .proj-footer {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 14px 24px;
-      border-top: 1px solid rgba(0,212,255,0.08);
-    }
-    .proj-footer .stars { font-size: 12px; color: rgba(255,255,255,0.4); }
-    .proj-footer .stars span { color: #ffd700; }
-    .proj-footer a.btn-gh {
-      font-size: 12px; font-weight: 600; letter-spacing: 0.5px;
-      color: #00d4ff; text-decoration: none;
-      border: 1px solid rgba(0,212,255,0.3); border-radius: 20px;
-      padding: 4px 14px; transition: all 0.2s;
-    }
-    .proj-footer a.btn-gh:hover {
-      background: rgba(0,212,255,0.15); border-color: #00d4ff;
-    }
-
-    /* Banner gradients per project */
-    .banner-pdftut  { background: linear-gradient(135deg, #1a1a2e, #16213e); }
-    .banner-dubber  { background: linear-gradient(135deg, #0d2137, #1a3a50); }
-    .banner-mongo   { background: linear-gradient(135deg, #13380c, #0d2a08); }
-    .banner-ann     { background: linear-gradient(135deg, #2d0a3e, #1a0628); }
-    .banner-cpp     { background: linear-gradient(135deg, #1c1800, #332e00); }
-    .banner-dsa     { background: linear-gradient(135deg, #1a0d00, #2e1800); }
-
-    .section-label {
-      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-      color: #00d4ff; font-weight: 700; margin-bottom: 6px; display: block;
-    }
-    .section-title {
-      font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: 40px;
-    }
-
-    .github-cta {
-      text-align: center; padding: 60px 0 80px;
-    }
-    .github-cta h3 { color: #fff; margin-bottom: 20px; }
-    .github-cta p  { color: rgba(255,255,255,0.5); margin-bottom: 30px; }
-
-    /* Proprietary work block */
-    .proprietary-work {
-      background: rgba(0,212,255,0.03);
-      border: 1px solid rgba(0,212,255,0.12);
-      border-radius: 10px; padding: 26px 28px; margin-bottom: 48px;
-    }
-    .proprietary-disclaimer {
-      font-size: 0.83rem; color: rgba(255,255,255,0.4); margin-bottom: 16px; font-style: italic;
-    }
-    .proprietary-list { list-style: none; padding: 0; margin: 0; }
-    .proprietary-list li {
-      font-family: 'Courier New', Courier, monospace; font-size: 0.8rem;
-      color: rgba(255,255,255,0.72); border-left: 2px solid rgba(0,212,255,0.55);
-      padding-left: 12px; line-height: 1.8; margin-bottom: 11px;
-    }
-    .proprietary-list li:last-child { margin-bottom: 0; }
-
-    /* Why it exists */
-    .project-why {
-      font-size: 0.76rem; color: rgba(255,255,255,0.32); font-style: italic;
-      margin: 10px 0 0 0; border-top: 1px solid rgba(255,255,255,0.07);
-      padding-top: 7px; line-height: 1.5;
-    }
-  </style>
-
-  <style>
-  @keyframes pageEnter { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
-  body { animation: pageEnter 0.2s ease-out both; }
-  </style>
+  <link rel="stylesheet" href="css/projects.css">
 </head>
+<body>
+  <canvas id="matrix-canvas"></canvas>
+  <a href="index.html" class="back-home">home</a>
+  <span class="page-indicator">projects.html [4/6]</span>
+  <span class="page-label">// REPOSITORY: PROJECTS — git log --all</span>
 
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+  <div class="subpage-wrapper">
+    <div class="git-header">$ git log --all --oneline --graph</div>
 
-  <!-- ── NAV ── -->
-  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">Ashutosh Tiwari</a>
-      <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="oi oi-menu"></span> Menu
-      </button>
-      <div class="collapse navbar-collapse" id="ftco-nav">
-        <ul class="navbar-nav nav ml-auto">
-          <li class="nav-item"><a href="index.html" class="nav-link"><span>Home</span></a></li>
-          <li class="nav-item"><a href="index.html#about-section" class="nav-link"><span>About</span></a></li>
-          <li class="nav-item"><a href="index.html#skills-section" class="nav-link"><span>Skills</span></a></li>
-          <li class="nav-item"><a href="resume.html" class="nav-link"><span>Resume</span></a></li>
-          <li class="nav-item active"><a href="projects.html" class="nav-link"><span>Projects</span></a></li>
-          <li class="nav-item"><a href="contact.html" class="nav-link"><span>Contact</span></a></li>
-          <li class="nav-item"><a href="https://drive.google.com/uc?export=download&id=137VJWeKOUD20bLV9FzSIlnfJ-X73D0cB" class="cv-dl-btn" target="_blank" rel="noopener">Download CV</a></li>
-        </ul>
+    <div class="project-list">
+
+      <!-- Project 1 -->
+      <div class="project-card">
+        <div class="project-header">
+          <span class="proj-hash">a3f9c12</span>
+          <span class="proj-name">BCM4373 WiFi Driver</span>
+          <span class="proj-date">2025-03</span>
+          <div class="proj-tags"><span class="proj-tag">[BSP]</span><span class="proj-tag">[Kernel]</span></div>
+          <span class="proj-toggle">+</span>
+        </div>
+        <div class="project-body">
+          <div class="project-inner">
+            <p class="proj-desc">
+              Production USB 2.0 WiFi driver for ADSP-SC598/AMP140C4 on Yocto.
+              Resolved TRX firmware format, USB ID patches, CLM blob loading.
+              Interrupt handling, DMA, memory management from scratch.
+            </p>
+            <div class="proj-metrics">
+              <span class="metric-tag">Language: C</span>
+              <span class="metric-tag">Target: ADSP-SC598</span>
+              <span class="metric-tag">Layer: Kernel Driver</span>
+            </div>
+            <div class="proj-diagram">
+              <svg viewBox="0 0 420 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:420px;">
+                <rect x="2" y="30" width="90" height="36" rx="5" stroke="#00FFCC" stroke-width="1.2" fill="rgba(0,255,204,0.05)"/>
+                <text x="47" y="53" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#00FF41">Yocto 5.0</text>
+                <line x1="92" y1="48" x2="122" y2="48" stroke="#00FFCC" stroke-width="1"/>
+                <polygon points="120,44 130,48 120,52" fill="#00FFCC"/>
+                <rect x="130" y="30" width="100" height="36" rx="5" stroke="#00FFCC" stroke-width="1.2" fill="rgba(0,255,204,0.05)"/>
+                <text x="180" y="53" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#00FF41">USB 2.0 Bus</text>
+                <line x1="230" y1="48" x2="258" y2="48" stroke="#00FFCC" stroke-width="1"/>
+                <polygon points="256,44 266,48 256,52" fill="#00FFCC"/>
+                <rect x="266" y="30" width="80" height="36" rx="5" stroke="#00FFCC" stroke-width="1.2" fill="rgba(0,255,204,0.05)"/>
+                <text x="306" y="53" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#00FF41">BCM4373</text>
+                <line x1="180" y1="66" x2="180" y2="82" stroke="#00FFCC" stroke-width="1" stroke-dasharray="3 2"/>
+                <rect x="110" y="82" width="140" height="16" rx="4" stroke="rgba(0,255,65,0.5)" stroke-width="1" fill="rgba(0,255,65,0.04)"/>
+                <text x="180" y="93" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#00FFCC">brcmfmac driver &#8594; AirPlay</text>
+              </svg>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </nav>
 
-  <!-- ── PAGE HERO ── -->
-  <div class="page-hero">
-    <div class="container">
-      <h1>My <span class="accent">Projects</span></h1>
-      <p>Open-source work spanning AI, embedded systems, and automation</p>
+      <!-- Project 2 -->
+      <div class="project-card">
+        <div class="project-header">
+          <span class="proj-hash">b7d2e45</span>
+          <span class="proj-name">Secure Bootloader ARM</span>
+          <span class="proj-date">2025-01</span>
+          <div class="proj-tags"><span class="proj-tag">[Firmware]</span></div>
+          <span class="proj-toggle">+</span>
+        </div>
+        <div class="project-body">
+          <div class="project-inner">
+            <p class="proj-desc">
+              Fail-safe bootloader, partition rollback for ARM Cortex-M4.
+              Shared memory comms, linker script for WIZnet W5500-EVB-Pico.
+            </p>
+            <div class="proj-metrics">
+              <span class="metric-tag">Language: C</span>
+              <span class="metric-tag">Target: ARM Cortex-M4/RP2040</span>
+              <span class="metric-tag">Layer: Bare-metal</span>
+            </div>
+            <div class="proj-diagram">
+              <svg viewBox="0 0 400 90" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:400px;">
+                <rect x="2" y="10" width="80" height="32" rx="5" stroke="#00FFCC" stroke-width="1.2" fill="rgba(0,255,204,0.05)"/>
+                <text x="42" y="30" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#00FF41">Boot ROM</text>
+                <line x1="82" y1="26" x2="108" y2="26" stroke="#00FFCC" stroke-width="1"/>
+                <polygon points="106,22 116,26 106,30" fill="#00FFCC"/>
+                <rect x="116" y="10" width="90" height="32" rx="5" stroke="#00FFCC" stroke-width="1.2" fill="rgba(0,255,204,0.05)"/>
+                <text x="161" y="30" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#00FF41">Bootloader</text>
+                <line x1="206" y1="26" x2="230" y2="26" stroke="#00FFCC" stroke-width="1"/>
+                <polygon points="228,22 238,26 228,30" fill="#00FFCC"/>
+                <rect x="238" y="10" width="90" height="32" rx="5" stroke="#00FFCC" stroke-width="1.2" fill="rgba(0,255,204,0.05)"/>
+                <text x="283" y="30" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#00FF41">Partition A</text>
+                <line x1="161" y1="42" x2="161" y2="56" stroke="#00FFCC" stroke-width="1" stroke-dasharray="3 2"/>
+                <text x="172" y="52" font-family="JetBrains Mono,monospace" font-size="9" fill="rgba(0,255,204,0.6)">rollback</text>
+                <rect x="110" y="56" width="100" height="28" rx="5" stroke="#00FFCC" stroke-width="1.2" fill="rgba(0,255,204,0.05)"/>
+                <text x="160" y="74" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="10" fill="#00FF41">Partition B</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card">
+        <div class="project-header">
+          <span class="proj-hash">c1a8f33</span>
+          <span class="proj-name">PDF Tutor</span>
+          <span class="proj-date">2024-11</span>
+          <div class="proj-tags"><span class="proj-tag">[PyPI]</span><span class="proj-tag">[OpenSource]</span></div>
+          <span class="proj-toggle">+</span>
+        </div>
+        <div class="project-body">
+          <div class="project-inner">
+            <p class="proj-desc">
+              Offline AI tool — PDF to interactive study. VARK modes, Anki export, mindmaps.
+              Ollama / Gemini / Groq backends. Fully local-first.
+            </p>
+            <div class="proj-metrics">
+              <span class="metric-tag">Language: Python</span>
+              <span class="metric-tag">Backend: Ollama/Groq</span>
+              <span class="metric-tag">Published: GitHub</span>
+            </div>
+            <a class="proj-link" href="https://github.com/Ashut90/pdf-tutor" target="_blank" rel="noopener">&#x2197; github.com/Ashut90/pdf-tutor</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project-card">
+        <div class="project-header">
+          <span class="proj-hash">d4c7b21</span>
+          <span class="proj-name">YouTube Dubber</span>
+          <span class="proj-date">2024-09</span>
+          <div class="proj-tags"><span class="proj-tag">[PyPI]</span><span class="proj-tag">[NLP]</span></div>
+          <span class="proj-toggle">+</span>
+        </div>
+        <div class="project-body">
+          <div class="project-inner">
+            <p class="proj-desc">
+              Real-time YouTube dubbing. Groq Whisper &#8594; LLaMA 3.3 70B &#8594; edge-TTS.
+              Hindi + 19 languages. Published to PyPI.
+            </p>
+            <div class="proj-metrics">
+              <span class="metric-tag">Language: Python</span>
+              <span class="metric-tag">Pipeline: Whisper&#8594;LLaMA&#8594;TTS</span>
+              <span class="metric-tag">PyPI: published</span>
+            </div>
+            <a class="proj-link" href="https://github.com/Ashut90/youtube-dubber" target="_blank" rel="noopener">&#x2197; github.com/Ashut90/youtube-dubber</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="project-card">
+        <div class="project-header">
+          <span class="proj-hash">e9f3d08</span>
+          <span class="proj-name">ElytestTMS</span>
+          <span class="proj-date">2024-06</span>
+          <div class="proj-tags"><span class="proj-tag">[Flask]</span><span class="proj-tag">[Internal]</span></div>
+          <span class="proj-toggle">+</span>
+        </div>
+        <div class="project-body">
+          <div class="project-inner">
+            <p class="proj-desc">
+              Test management system built from scratch. Flask + SQLite.
+              Deployed on Oracle Cloud Free Tier. Used at Elytone internally.
+            </p>
+            <div class="proj-metrics">
+              <span class="metric-tag">Language: Flask/Python</span>
+              <span class="metric-tag">Deploy: Oracle Cloud</span>
+              <span class="metric-tag">Type: Internal</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
-  <!-- ── PROJECTS GRID ── -->
-  <section class="project-grid" style="background:#111;">
-    <div class="container">
+  <div class="prev-next">
+    <a href="skills.html">&#8592; Skills</a>
+    <a href="resume.html">Resume &#8594;</a>
+  </div>
 
-      <!-- Proprietary / NDA work -->
-      <div class="proprietary-work">
-        <h5 style="color:#00d4ff;font-size:0.9rem;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px;">Professional Work (Proprietary)</h5>
-        <p class="proprietary-disclaimer">The following are production deliverables from Elytone Electronics. Full source is under NDA; details are shared at interview level.</p>
-        <ul class="proprietary-list">
-          <li>USB 2.0 Wi-Fi device driver (brcmfmac) for ADSP-SC598 on Yocto 5.0 / kernel 6.12 &mdash; interrupt handling, DMA ring buffers, URB lifecycle, upstreamed to ADI Yocto-Standard</li>
-          <li>Secure bootloader with rollback protection for ARM Cortex-M4 (AMP140C4) in bare-metal + FreeRTOS environments</li>
-          <li>BCM4373 brcmfmac bring-up: TRX firmware loading, CLM blob, USB ID patch, regulatory domain, WPA2 association verified</li>
-          <li>Python-based automated SoC validation suite &mdash; 85% coverage, 60% reduction in regression cycle time</li>
-        </ul>
-      </div>
-
-      <!-- Featured Projects -->
-      <span class="section-label">Selected Work</span>
-      <h2 class="section-title">Open-Source Projects</h2>
-
-      <div class="row justify-content-center">
-
-        <!-- PDF Tutor -->
-        <div class="col-md-6 col-lg-4 mb-4 ftco-animate">
-          <div class="proj-card">
-            <div class="proj-card-banner banner-pdftut">📚</div>
-            <div class="proj-card-body">
-              <h3><a href="https://github.com/Ashut90/pdf-tutor" target="_blank" rel="noopener">PDF Tutor — AI Study Assistant</a></h3>
-              <p>Local-first hybrid AI that refactors technical PDFs into VARK learning tracks. Supports Anki export, mind-maps, text-to-speech, and runs fully offline via Ollama or free cloud APIs (Gemini, Groq).</p>
-              <div class="tech-tags">
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">Ollama</span>
-                <span class="tech-tag">Gemini</span>
-                <span class="tech-tag violet">Open Source</span>
-                <span class="tech-tag violet">Offline AI</span>
-              </div>
-              <p class="project-why">Built because existing AI study tools required cloud APIs and leaked lecture content. Needed a fully offline, privacy-safe alternative for embedded datasheets.</p>
-            </div>
-            <div class="proj-footer">
-              <span class="stars"><span>★</span> 2</span>
-              <a href="https://github.com/Ashut90/pdf-tutor" target="_blank" rel="noopener" class="btn-gh">View on GitHub →</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- YouTube Dubber -->
-        <div class="col-md-6 col-lg-4 mb-4 ftco-animate">
-          <div class="proj-card">
-            <div class="proj-card-banner banner-dubber">🎬</div>
-            <div class="proj-card-body">
-              <h3><a href="https://github.com/Ashut90/youtube-dubber" target="_blank" rel="noopener">YouTube Dubber — Real-Time Video Dubbing</a></h3>
-              <p>Translates and dubs YouTube videos into Hindi and 19+ languages in real-time using Whisper for transcription, Groq for ultra-fast translation, and edge-TTS for natural voice synthesis.</p>
-              <div class="tech-tags">
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">Whisper</span>
-                <span class="tech-tag">Groq</span>
-                <span class="tech-tag green">Real-Time</span>
-                <span class="tech-tag violet">NLP</span>
-              </div>
-              <p class="project-why">Built to make technical conference talks accessible in native languages without waiting for official subtitles or dubbing.</p>
-            </div>
-            <div class="proj-footer">
-              <span class="stars"><span>★</span> 0</span>
-              <a href="https://github.com/Ashut90/youtube-dubber" target="_blank" rel="noopener" class="btn-gh">View on GitHub →</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- MongoDB Automation Suite -->
-        <div class="col-md-6 col-lg-4 mb-4 ftco-animate">
-          <div class="proj-card">
-            <div class="proj-card-banner banner-mongo" style="background-image:url('images/Mongodb.png');background-size:cover;background-position:center;"></div>
-            <div class="proj-card-body">
-              <h3><a href="https://github.com/Ashut90/mongodb_connectorpkg" target="_blank" rel="noopener">MongoDB Automation Suite</a></h3>
-              <p>Python package for automating MongoDB database operations with seamless CI/CD integration — used as part of a validation pipeline for embedded system regression testing.</p>
-              <div class="tech-tags">
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">MongoDB</span>
-                <span class="tech-tag violet">CI/CD</span>
-                <span class="tech-tag green">Published Package</span>
-              </div>
-              <p class="project-why">Needed a repeatable, scriptable way to seed and verify test databases in the SoC validation pipeline without manual intervention.</p>
-            </div>
-            <div class="proj-footer">
-              <span class="stars"><span>★</span> 2</span>
-              <a href="https://github.com/Ashut90/mongodb_connectorpkg" target="_blank" rel="noopener" class="btn-gh">View on GitHub →</a>
-            </div>
-          </div>
-        </div>
-
-      </div><!-- /row -->
-
-      <!-- GitHub CTA -->
-      <div class="github-cta">
-        <h3>See everything on GitHub</h3>
-        <p>More repos, experiments, and open-source contributions</p>
-        <a href="https://github.com/Ashut90" target="_blank" rel="noopener" class="btn btn-primary py-3 px-5">Visit GitHub Profile</a>
-      </div>
-
-    </div><!-- /container -->
-  </section>
-
-  <!-- ── FOOTER ── -->
-  <footer class="ftco-footer ftco-section">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 text-center">
-          <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> Ashutosh Tiwari &mdash; <a href="index.html">Home</a> &middot; <a href="projects.html">Projects</a> &middot; <a href="resume.html">Resume</a> &middot; <a href="contact.html">Contact</a></p>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/jquery.waypoints.min.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/scrollax.min.js"></script>
-  <script src="js/aos.js"></script>
-  <script src="js/main.js"></script>
-
-  
-<!--Start of Tawk.to Script-->
-  <script type="text/javascript">
-  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-  (function(){
-  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-  s1.async=true;
-  s1.src='https://embed.tawk.to/6a2579146d77da1c401dee0a/1jqh61uc7';
-  s1.charset='UTF-8';
-  s1.setAttribute('crossorigin','*');
-  s0.parentNode.insertBefore(s1,s0);
-  })();
-  </script>
-  <!--End of Tawk.to Script-->
-  </body>
+  <script src="js/matrix.js"></script>
+  <script src="js/projects.js"></script>
+</body>
 </html>
