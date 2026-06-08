@@ -135,33 +135,54 @@ Google Drive</p>
 
   </main>
 
-  <!-- Chat widget (bottom right) -->
-  <div class="chat-widget" id="chat-widget">
-    <div class="chat-panel" id="chat-panel">
-      <div class="chat-panel-header">
-        <span>Say hello &#x1F44B;</span>
-        <button class="chat-close" id="chat-close" aria-label="Close">&#x2715;</button>
+  <!-- Cyberpunk chat terminal — powered by tawk.to -->
+  <div class="chat-terminal" id="chat-terminal" role="button" aria-label="Open live chat">
+    <div class="ct-titlebar">
+      <div class="ct-dots">
+        <span class="ct-dot ct-red"></span>
+        <span class="ct-dot ct-yellow"></span>
+        <span class="ct-dot ct-green"></span>
       </div>
-      <div class="chat-panel-body">
-        <p>I&#x27;m Ashutosh — firmware dev based in Taiwan.<br>Open to BSP / Embedded Linux roles.</p>
-        <a href="contact.html" class="chat-cta">Get in touch &#x2192;</a>
+      <span class="ct-title">ash@portfolio &mdash; chat</span>
+      <span class="ct-status">&#x25CF;&nbsp;ONLINE</span>
+    </div>
+    <div class="ct-body">
+      <div class="ct-line">
+        <span class="ct-prompt">root@chat:~$&nbsp;</span>
+        <span class="ct-text">connect --agent ashutosh</span>
       </div>
+      <div class="ct-line ct-ok">
+        <span>[&nbsp;&nbsp;OK&nbsp;&nbsp;]</span>
+        <span>&nbsp;Agent online. Ready.</span>
+      </div>
+      <div class="ct-cursor-line">
+        <span class="ct-prompt">you@chat:~$&nbsp;</span>
+        <span class="ct-blink">_</span>
+      </div>
+      <button class="ct-btn" id="ct-btn">[ OPEN CHAT ]</button>
     </div>
-    <div class="chat-icon" id="chat-toggle" role="button" aria-label="Open chat" aria-expanded="false">
-      <span class="chat-badge"></span>
-      &#x1F916;
-    </div>
-  </div>
-
-  <!-- Sparkle star -->
-  <div class="sparkle" aria-hidden="true">
-    <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-      <path d="M10 0 L11.8 8.2 L20 10 L11.8 11.8 L10 20 L8.2 11.8 L0 10 L8.2 8.2 Z" fill="white"/>
-    </svg>
+    <div class="ct-scanlines"></div>
   </div>
 
   <script src="js/matrix.js"></script>
   <script src="js/connectors.js"></script>
   <script src="js/home.js"></script>
+
+  <!-- tawk.to — hide default launcher, use custom terminal above -->
+  <script>
+    var Tawk_API = Tawk_API || {};
+    Tawk_API.onLoad = function () { Tawk_API.hideWidget(); };
+  </script>
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/6a2579146d77da1c401dee0a/1jqh61uc7';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
 </body>
 </html>

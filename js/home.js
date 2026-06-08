@@ -19,39 +19,15 @@
       }, 300 + i * 200);
     });
 
-    /* Chat widget toggle */
-    var toggle  = document.getElementById('chat-toggle');
-    var panel   = document.getElementById('chat-panel');
-    var closeBtn = document.getElementById('chat-close');
-
-    function openPanel() {
-      if (!panel) return;
-      panel.classList.add('open');
-      if (toggle) toggle.setAttribute('aria-expanded', 'true');
-    }
-    function closePanel() {
-      if (!panel) return;
-      panel.classList.remove('open');
-      if (toggle) toggle.setAttribute('aria-expanded', 'false');
-    }
-
-    if (toggle) {
-      toggle.addEventListener('click', function () {
-        panel && panel.classList.contains('open') ? closePanel() : openPanel();
+    /* Chat terminal → open tawk.to */
+    var chatTerm = document.getElementById('chat-terminal');
+    if (chatTerm) {
+      chatTerm.addEventListener('click', function () {
+        if (typeof Tawk_API !== 'undefined' && typeof Tawk_API.maximize === 'function') {
+          Tawk_API.maximize();
+        }
       });
     }
-    if (closeBtn) {
-      closeBtn.addEventListener('click', function (e) {
-        e.stopPropagation();
-        closePanel();
-      });
-    }
-
-    /* Close panel on outside click */
-    document.addEventListener('click', function (e) {
-      var widget = document.getElementById('chat-widget');
-      if (widget && !widget.contains(e.target)) closePanel();
-    });
   });
 
 }());
