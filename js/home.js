@@ -113,7 +113,7 @@
           body: JSON.stringify({
             chat_id: '7737853571',
             text: '📩 Portfolio chat [' + sessionId + ']:\n' + msg +
-                  '\n\nReply → ashutoshtiwari.github.io/admin.html'
+                  '\n\nReply → ashut90.github.io/ashutoshtiwari.github.io/admin.html'
           })
         }).catch(function () {});
       });
