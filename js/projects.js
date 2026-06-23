@@ -3,6 +3,22 @@
   'use strict';
 
   var DATA = {
+    'eaedk': {
+      hash:    'b236994',
+      name:    'EAEDK',
+      license: 'v4.1.0',
+      image:   null,
+      desc:    'Local-first firmware mentor and validation engine. Deterministic engines — 23 pure validation rules, a risk engine, and semantic-intent costing — run fully offline with zero LLM and zero GPU. An optional local LLM (deepseek-r1:8b via Ollama) sits outside the trust boundary and may only explain data the engines have already verified, making hallucinated hardware facts structurally impossible. Ships with 14 built-in boards, an 8-page web UI with streaming chat, boot-log crash triage, datasheet PDF ingestion, and real build-file export (CMake + linker script).',
+      metrics: [
+        'Stack: Python · FastAPI · SQLite',
+        '14 boards · 23 validation rules',
+        'LLM: Ollama · deepseek-r1:8b (opt-in)',
+        'Offline: all checks, zero GPU needed',
+        '380 tests green · eval 20/20',
+        'Web UI: 8 pages · streaming chat'
+      ],
+      github:  'https://github.com/Ashut90/eaedk'
+    },
     'pdf-tutor': {
       hash:    'c1a8f33',
       name:    'PDF Tutor',
@@ -216,7 +232,7 @@
     });
 
     /* Auto-select first card after entrance animation */
-    setTimeout(function () { selectProject('pdf-tutor'); }, 750);
+    setTimeout(function () { selectProject('eaedk'); }, 750);
 
     /* Redraw connector after window resize */
     var resizeT;
