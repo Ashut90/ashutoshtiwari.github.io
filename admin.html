@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — Portfolio Chat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+  <!-- Auth gate -->
+  <div id="auth-gate" class="auth-gate">
+    <div class="auth-box">
+      <div class="auth-title">ash@admin:~$ authenticate</div>
+      <div class="auth-row">
+        <span class="auth-label">password:&nbsp;</span>
+        <input type="password" id="auth-pass" class="auth-input" autocomplete="off" autofocus>
+      </div>
+      <div class="auth-err" id="auth-err"></div>
+    </div>
+  </div>
+
+  <!-- Admin app -->
+  <div id="admin-app" class="admin-app">
+
+    <div class="adm-header">
+      <span class="adm-title">ash@admin:~$ monitor --sessions live</span>
+      <span class="adm-count" id="adm-count">0 sessions</span>
+    </div>
+
+    <div class="adm-layout">
+
+      <!-- Sessions list -->
+      <div class="sessions-col" id="sessions-col">
+        <div class="sess-empty" id="sess-empty">// no sessions yet</div>
+      </div>
+
+      <!-- Chat view -->
+      <div class="chat-col">
+        <div class="chat-empty" id="chat-empty">// select a session to reply</div>
+        <div class="chat-view" id="chat-view">
+          <div class="adm-thread" id="adm-thread"></div>
+          <div class="adm-input-row">
+            <span class="adm-prompt">ash:~$&nbsp;</span>
+            <input type="text" id="adm-msg" class="adm-input" placeholder="type reply + enter..." autocomplete="off">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

@@ -519,6 +519,53 @@
   white-space: nowrap;
 }
 
+/* Chat thread */
+.cp-thread {
+  max-height: 120px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,255,204,0.15) transparent;
+}
+.cp-thread::-webkit-scrollbar { width: 2px; }
+.cp-thread::-webkit-scrollbar-thumb { background: rgba(0,255,204,0.2); }
+
+.cp-thread-hint {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: rgba(0,255,204,0.18);
+  text-align: center;
+  padding: 8px 0;
+}
+
+.cp-msg-bubble {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  line-height: 1.5;
+  padding: 4px 8px;
+  border-radius: 4px;
+  max-width: 92%;
+  word-break: break-word;
+  display: block;
+}
+.cp-msg-bubble.visitor {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.62);
+  align-self: flex-end;
+  margin-left: auto;
+}
+.cp-msg-bubble.visitor::before { content: 'you: '; color: rgba(255,255,255,0.3); }
+.cp-msg-bubble.ash {
+  background: rgba(0,255,204,0.06);
+  border: 1px solid rgba(0,255,204,0.2);
+  color: var(--cyan);
+}
+.cp-msg-bubble.ash::before { content: 'ash: '; color: rgba(0,255,204,0.45); }
+
 .cp-divider {
   font-size: 9px;
   color: rgba(0,255,204,0.22);

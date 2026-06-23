@@ -199,18 +199,22 @@ Google Drive</p>
           <span class="cp-ch-val">Ashut90</span>
         </a>
       </div>
-      <div class="cp-divider">&#9472;&#9472; quick message &#9472;&#9472;</div>
+      <div class="cp-divider">&#9472;&#9472; live chat &#9472;&#9472;</div>
+      <div class="cp-thread" id="cp-thread">
+        <span class="cp-thread-hint">send a message to start...</span>
+      </div>
       <div class="cp-msg-row">
         <span class="ct-prompt">you:~$&nbsp;</span>
-        <input type="text" id="cp-msg" class="cp-msg-input" placeholder="message + your email, press enter..." autocomplete="off" spellcheck="false">
+        <input type="text" id="cp-msg" class="cp-msg-input" placeholder="type your message..." autocomplete="off" spellcheck="false">
       </div>
-      <div class="cp-status" id="cp-status"></div>
     </div>
     <div class="ct-scanlines"></div>
   </div>
 
   <script src="js/matrix.js"></script>
   <script src="js/connectors.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
   <script src="js/home.js"></script>
 </body>
 </html>

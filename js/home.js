@@ -1,8 +1,31 @@
-/* home.js — card stagger animation + chat widget */
+/* home.js — card stagger animation + Firebase bidirectional chat */
 (function () {
   'use strict';
 
-  var STAGGER_OFFSETS = [0, -18, 12, 8, -12, 4]; /* px translateY per card */
+  var STAGGER_OFFSETS = [0, -18, 12, 8, -12, 4];
+
+  /* ── Firebase init ──────────────────────────── */
+  var db = null;
+  try {
+    if (typeof firebase !== 'undefined') {
+      if (!firebase.apps.length) {
+        firebase.initializeApp({
+          apiKey:      'AIzaSyDtUcYyP8og5s4HzlP9K9WhqMvmEzHFqXE',
+          databaseURL: 'https://portfolio-chat-40b92-default-rtdb.asia-southeast1.firebasedatabase.app',
+          projectId:   'portfolio-chat-40b92',
+          appId:       '1:564513910409:web:2cf8b262aed88bafcf2058'
+        });
+      }
+      db = firebase.database();
+    }
+  } catch (e) { /* Firebase blocked */ }
+
+  /* ── Session ID — persists for the tab lifetime ── */
+  var sessionId = sessionStorage.getItem('pf_sess');
+  if (!sessionId) {
+    sessionId = 'sess_' + Math.random().toString(36).substr(2, 9);
+    sessionStorage.setItem('pf_sess', sessionId);
+  }
 
   document.addEventListener('DOMContentLoaded', function () {
     initMatrix(1.0);
@@ -19,17 +42,41 @@
       }, 300 + i * 200);
     });
 
-    /* Contact panel open / close */
-    var chatTerm = document.getElementById('chat-terminal');
-    var cpPanel  = document.getElementById('contact-panel');
-    var cpClose  = document.getElementById('cp-close');
-    var cpMsg    = document.getElementById('cp-msg');
-    var cpStatus = document.getElementById('cp-status');
-    var overlay  = document.getElementById('chat-overlay');
+    /* Panel elements */
+    var chatTerm     = document.getElementById('chat-terminal');
+    var cpPanel      = document.getElementById('contact-panel');
+    var cpClose      = document.getElementById('cp-close');
+    var cpMsg        = document.getElementById('cp-msg');
+    var cpThread     = document.getElementById('cp-thread');
+    var overlay      = document.getElementById('chat-overlay');
+    var chatListening = false;
+
+    /* Add a bubble to the thread */
+    function addBubble(sender, text) {
+      if (!cpThread) return;
+      var hint = cpThread.querySelector('.cp-thread-hint');
+      if (hint) hint.remove();
+      var el = document.createElement('div');
+      el.className = 'cp-msg-bubble ' + (sender === 'ash' ? 'ash' : 'visitor');
+      el.textContent = text;
+      cpThread.appendChild(el);
+      cpThread.scrollTop = cpThread.scrollHeight;
+    }
+
+    /* Listen for ash's replies on this session */
+    function startListening() {
+      if (chatListening || !db) return;
+      chatListening = true;
+      db.ref('sessions/' + sessionId + '/messages').on('child_added', function (snap) {
+        var m = snap.val();
+        addBubble(m.sender, m.text);
+      });
+    }
 
     function openPanel() {
       if (cpPanel) { cpPanel.classList.add('open'); cpPanel.setAttribute('aria-hidden', 'false'); }
       if (overlay) overlay.classList.add('active');
+      startListening();
       setTimeout(function () { if (cpMsg) cpMsg.focus(); }, 240);
     }
     function closePanel() {
@@ -41,40 +88,34 @@
     if (cpClose)  cpClose.addEventListener('click',  function (e) { e.stopPropagation(); closePanel(); });
     if (overlay)  overlay.addEventListener('click',  closePanel);
 
-    /* Quick message → Telegram bot */
+    /* Send message */
     if (cpMsg) {
       cpMsg.addEventListener('keydown', function (e) {
         if (e.key !== 'Enter') return;
         var msg = cpMsg.value.trim();
         if (!msg) return;
-        cpStatus.textContent = 'sending...';
-        cpStatus.style.color = 'var(--cyan)';
+        cpMsg.value = '';
 
-        var text = '📩 Portfolio message:\n' + msg + '\n\n— ashutoshtiwari.github.io';
+        if (db) {
+          var now = Date.now();
+          var sessRef = db.ref('sessions/' + sessionId);
+          sessRef.update({ lastActivity: now });
+          sessRef.child('created').once('value', function (s) {
+            if (!s.exists()) sessRef.child('created').set(now);
+          });
+          sessRef.child('messages').push({ sender: 'visitor', text: msg, time: now });
+        }
 
+        /* Telegram alert to Ashutosh */
         fetch('https://api.telegram.org/bot8825072528:AAHc3u5HSMd3rt6YIo0JfBrGUcrHczCKaPo/sendMessage', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ chat_id: '7737853571', text: text })
-        })
-        .then(function (r) { return r.json(); })
-        .then(function (d) {
-          if (d.ok) {
-            cpMsg.value = '';
-            cpStatus.textContent = '[ OK ] Delivered.';
-            setTimeout(function () { cpStatus.textContent = ''; }, 3000);
-          } else {
-            cpStatus.textContent = '[ ERR ] Failed — try email.';
-            cpStatus.style.color = 'var(--red)';
-          }
-        })
-        .catch(function () {
-          /* Network fallback → mailto */
-          window.open('mailto:ash945512@gmail.com?subject=Portfolio%20Contact&body=' + encodeURIComponent(msg), '_blank');
-          cpMsg.value = '';
-          cpStatus.textContent = '[ OK ] Sent via email.';
-          setTimeout(function () { cpStatus.textContent = ''; }, 3000);
-        });
+          body: JSON.stringify({
+            chat_id: '7737853571',
+            text: '📩 Portfolio chat [' + sessionId + ']:\n' + msg +
+                  '\n\nReply → ashutoshtiwari.github.io/admin.html'
+          })
+        }).catch(function () {});
       });
     }
   });
