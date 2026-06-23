@@ -41,22 +41,40 @@
     if (cpClose)  cpClose.addEventListener('click',  function (e) { e.stopPropagation(); closePanel(); });
     if (overlay)  overlay.addEventListener('click',  closePanel);
 
-    /* Quick message → mailto */
+    /* Quick message → Telegram bot */
     if (cpMsg) {
       cpMsg.addEventListener('keydown', function (e) {
         if (e.key !== 'Enter') return;
         var msg = cpMsg.value.trim();
         if (!msg) return;
-        cpStatus.textContent = 'queuing...';
-        setTimeout(function () {
-          window.open(
-            'mailto:ash945512@gmail.com?subject=Portfolio%20Contact&body=' + encodeURIComponent(msg),
-            '_blank'
-          );
+        cpStatus.textContent = 'sending...';
+        cpStatus.style.color = 'var(--cyan)';
+
+        var text = '📩 Portfolio message:\n' + msg + '\n\n— ashutoshtiwari.github.io';
+
+        fetch('https://api.telegram.org/bot8825072528:AAHc3u5HSMd3rt6YIo0JfBrGUcrHczCKaPo/sendMessage', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ chat_id: '7737853571', text: text })
+        })
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+          if (d.ok) {
+            cpMsg.value = '';
+            cpStatus.textContent = '[ OK ] Delivered.';
+            setTimeout(function () { cpStatus.textContent = ''; }, 3000);
+          } else {
+            cpStatus.textContent = '[ ERR ] Failed — try email.';
+            cpStatus.style.color = 'var(--red)';
+          }
+        })
+        .catch(function () {
+          /* Network fallback → mailto */
+          window.open('mailto:ash945512@gmail.com?subject=Portfolio%20Contact&body=' + encodeURIComponent(msg), '_blank');
           cpMsg.value = '';
-          cpStatus.textContent = '[ OK ] Message queued.';
+          cpStatus.textContent = '[ OK ] Sent via email.';
           setTimeout(function () { cpStatus.textContent = ''; }, 3000);
-        }, 400);
+        });
       });
     }
   });
